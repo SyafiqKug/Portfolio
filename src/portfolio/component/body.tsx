@@ -31,9 +31,10 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="snap-center h-full w-full flex flex-col items-start justify-end py-12 bg-gray-100"
+        className="snap-center h-full w-full flex flex-row items-start justify-end  bg-gray-100"
       >
-        <div className="container mx-auto px-6 lg:px-20 ">
+        <div className="h-full w-2/5 flex flex-col bg-gray-500"></div>
+        <div className="h-full w-3/5 container mx-auto px-6 lg:px-20 py-12 ">
           <h2 className="text-4xl font-bold text-gray-800">About Me</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Personal Details */}
