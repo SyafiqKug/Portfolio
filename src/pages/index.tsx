@@ -6,7 +6,7 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <div className="relative h-screen w-full flex flex-col justify-between">
-      <div className="absolute w-full shadow-gray-700 shadow-lg">
+      <div className="">
         <Navbar />
       </div>
       <div className="h-full w-full flex items-center justify-center">
