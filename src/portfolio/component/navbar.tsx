@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
     >
       <Button
         onClick={handleScrollToHome}
-        className="w-1/3 text-xl tracking-wider font-medium bg-transparent hover:bg-transparent text-white focus:bg-transparent hover:text-white focus:text-white"
+        className="w-1/3 text-base lg:text-xl tracking-wider font-medium bg-transparent hover:bg-transparent text-white focus:bg-transparent hover:text-white focus:text-white"
       >
         Syafiq RAez
       </Button>
