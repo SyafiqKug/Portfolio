@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
         //     ?""
         //     :
         isClicked
-          ? "relativew-full shadow-gray-700 shadow-lg flex flex-row justify-between items-center text-white bg-black py-2 px-5" // Solid background and relative positioning
+          ? "relative w-full shadow-gray-700 shadow-lg flex flex-row justify-between items-center text-white bg-black py-2 px-5" // Solid background and relative positioning
           : "absolute w-full shadow-gray-700 shadow-lg flex flex-row justify-between items-center text-white bg-black bg-opacity-70 py-2 px-5" // Semi-transparent background
       } w-full py-4 px-6 transition-all duration-300`}
     >

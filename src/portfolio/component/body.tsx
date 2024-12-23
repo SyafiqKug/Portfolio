@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Body: React.FC = () => {
   return (
@@ -33,19 +34,32 @@ const Body: React.FC = () => {
         id="about"
         className="snap-center h-full w-full flex flex-row items-start justify-end  bg-gray-100"
       >
-        <div className="h-full w-2/5 flex flex-col bg-gray-500"></div>
-        <div className="h-full w-3/5 container mx-auto px-6 lg:px-20 py-12 ">
-          <h2 className="text-4xl font-bold text-gray-800">About Me</h2>
+        <div className="h-full w-2/6 md:w-1/5 flex flex-col bg-gray-500 p-5 divide-y-2 divide-gray-600 gap-10">
+          <div className="h-1/4 w-full flex items-center justify-center">
+            <div className="h-48 w-48 flex items-start justify-center rounded-full overflow-hidden shadow-lg shadow-gray-900">
+              <Image
+                src="/images/saya.jpg"
+                width={180}
+                height={200}
+                alt=""
+                className="h-52 w-80"
+              />
+            </div>
+          </div>
+          <div className="h-3/4"></div>
+        </div>
+        <div className="h-screen-50 sm:min-h-full w-4/6 md:w-4/5 overflow-y-auto container mx-auto lg:px-20 p-5  ">
+          <div className="text-4xl font-bold text-gray-800">About Me</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Personal Details */}
-            <div>
-              <p className="text-lg text-gray-700 mb-4">
+            <div className="flex flex-col gap-5">
+              <p className="text-base text-gray-700">
                 Hi, I am a passionate and versatile professional with a
                 background in both architecture and software development. I have
                 successfully transitioned from designing physical spaces to
                 building modern, responsive, and scalable digital solutions.
               </p>
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-base text-gray-700">
                 I am currently working as a Software Developer at Rayatech Sdn.
                 Bhd., where I design and implement solutions based on client
                 requirements. My role involves crafting intuitive user
@@ -55,32 +69,32 @@ const Body: React.FC = () => {
 
             {/* Skills Section */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+              <div className="text-2xl font-semibold text-gray-800 mb-4">
                 Skills
-              </h3>
-              <ul className="list-disc list-inside text-gray-700">
-                <li>
+              </div>
+              <div className="list-disc list-inside text-gray-700">
+                <div>
                   <strong>Programming:</strong> HTML, CSS, JavaScript,
                   TypeScript
-                </li>
-                <li>
+                </div>
+                <div>
                   <strong>Frameworks:</strong> Next.js, Tailwind CSS
-                </li>
-                <li>
+                </div>
+                <div>
                   <strong>UI/UX Design Tools:</strong> Adobe Photoshop, InDesign
                   (Basic)
-                </li>
-                <li>
+                </div>
+                <div>
                   <strong>Database Management:</strong> MySQL
-                </li>
-                <li>
+                </div>
+                <div>
                   <strong>Hosting & Deployment:</strong> AWS for prototypes
-                </li>
-                <li>
+                </div>
+                <div>
                   <strong>Additional Skills:</strong> Responsive Design for BYOD
                   compatibility
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
 
