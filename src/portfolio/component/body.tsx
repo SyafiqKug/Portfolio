@@ -36,132 +36,216 @@ const Body: React.FC = () => {
       >
         <div className="h-full w-2/6 md:w-1/5 flex flex-col bg-gray-500 p-5 divide-y-2 divide-gray-600 gap-10">
           <div className="h-1/4 w-full flex items-center justify-center">
-            <div className="h-48 w-48 flex items-start justify-center rounded-full overflow-hidden shadow-lg shadow-gray-900">
+            <div className="h-48 w-48 flex items-center justify-end rounded-full overflow-hidden shadow-lg shadow-gray-900">
               <Image
-                src="/images/saya.jpg"
-                width={180}
+                src="/images/saya2.jpg"
+                width={400}
                 height={200}
                 alt=""
-                className="h-52 w-80"
+                className="h-52 w-52"
               />
             </div>
           </div>
-          <div className="h-3/4"></div>
+          <div className="h-3/4">
+          bahagian update personal info
+          </div>
         </div>
-        <div className="h-screen-50 sm:min-h-full w-4/6 md:w-4/5 overflow-y-auto container mx-auto lg:px-20 p-5  ">
-          <div className="text-4xl font-bold text-gray-800">About Me</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Personal Details */}
-            <div className="flex flex-col gap-5">
-              <p className="text-base text-gray-700">
-                Hi, I am a passionate and versatile professional with a
-                background in both architecture and software development. I have
-                successfully transitioned from designing physical spaces to
-                building modern, responsive, and scalable digital solutions.
-              </p>
-              <p className="text-base text-gray-700">
-                I am currently working as a Software Developer at Rayatech Sdn.
-                Bhd., where I design and implement solutions based on client
-                requirements. My role involves crafting intuitive user
-                experiences and developing robust full-stack applications.
-              </p>
+        <div className="h-full w-4/6 md:w-4/5 p-5">
+          <div className="h-screen-40 sm:min-h-full w-full flex flex-col overflow-y-auto container border-2 border-gray-500 rounded-lg overflow-hidden p-2">
+            <div className="w-full text-3xl font-bold text-gray-800">
+              About Me
             </div>
-
-            {/* Skills Section */}
-            <div>
-              <div className="text-2xl font-semibold text-gray-800 mb-4">
-                Skills
+            <div className="h-full w-full flex flex-col gap-5">
+              {/* Personal Details */}
+              <div className="flex flex-col gap-2">
+                <div className="text-tiny text-gray-700 tracking-tighter leading-tight">
+                  Hi, I am a passionate and versatile professional with a
+                  background in both architecture and software development. I
+                  have successfully transitioned from designing physical spaces
+                  to building modern, responsive, and scalable digital
+                  solutions. I am currently working as a Software Developer ,
+                  where I design and implement solutions based on client
+                  requirements. My role involves crafting intuitive user
+                  experiences and developing robust full-stack applications.
+                </div>
               </div>
-              <div className="list-disc list-inside text-gray-700">
-                <div>
-                  <strong>Programming:</strong> HTML, CSS, JavaScript,
-                  TypeScript
-                </div>
-                <div>
-                  <strong>Frameworks:</strong> Next.js, Tailwind CSS
-                </div>
-                <div>
-                  <strong>UI/UX Design Tools:</strong> Adobe Photoshop, InDesign
-                  (Basic)
-                </div>
-                <div>
-                  <strong>Database Management:</strong> MySQL
-                </div>
-                <div>
-                  <strong>Hosting & Deployment:</strong> AWS for prototypes
-                </div>
-                <div>
-                  <strong>Additional Skills:</strong> Responsive Design for BYOD
-                  compatibility
+              <div className="h-full w-full flex flex-row gap-2">
+                <div className="h-full w-full flex flex-col gap-3">
+                  <div className="h-auto w-full">
+                    <div className="text-xl font-semibold text-gray-800">
+                      Career Journey
+                    </div>
+                    <div className=" text-gray-700">
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Software Developer</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          <div className="font-bold">
+                            Rayatech Sdn. Bhd. (Mar 2023 - Present)
+                          </div>
+                          <div className="">
+                            Designing and implementing client-based solutions
+                            with a focus on responsive UI/UX and scalable
+                            backend systems.
+                          </div>
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Interior Designer</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          <div className="font-bold">
+                            Ezkay Sdn. Bhd. (Oct 2021 - Sep 2022)
+                          </div>
+                          <div className="">
+                            Designed innovative and functional interior spaces,
+                            combining aesthetics with practicality.
+                          </div>
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Assistant Architect</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          <div className="font-bold">
+                            Iryas Incorporation (Jan 2021 - Oct 2021)
+                          </div>
+                          <div className="">
+                            Designed functional building spaces with
+                            practicality.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-auto w-full">
+                    <div className="text-xl font-semibold text-gray-800">
+                      Skills
+                    </div>
+                    <div className=" text-gray-700">
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Programming</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          HTML, CSS, JavaScript, TypeScript, Tailwind, Bootstrap
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Frameworks</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">Next.js, Tailwind CSS</div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">UI/UX Design Tools</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          Adobe Photoshop, InDesign (Basic)
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Database Management</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">MySQL</div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Hosting & Deployment</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">AWS for prototypes</div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Additional Skills</div>
+                          <div className="">:</div>
+                        </div>
+                        <div className="">
+                          Responsive Design for BYOD compatibility
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-auto w-full">
+                    <div className="text-xl font-semibold text-gray-800">
+                      Education
+                    </div>
+                    <div className=" text-gray-700">
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">
+                            Diploma in Software Development
+                          </div>
+                          <div className="">-</div>
+                        </div>
+                        <div className="">
+                          Code Institute (2020-2021): Focused on HTML, CSS,
+                          JavaScript, and Python.
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">
+                            Bachelor of Science in Architectural Studies
+                          </div>
+                          <div className="">-</div>
+                        </div>
+                        <div className="">
+                          Limkokwing University (2016-2018): Graduated with a
+                          CGPA of 3.34.
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Diploma in Architecture</div>
+                          <div className="">-</div>
+                        </div>
+                        <div className="">
+                          Politeknik Port Dickson (2012-2015): Graduated with a
+                          CGPA of 3.01.
+                        </div>
+                      </div>
+                      <div className="w-full flex flex-row gap-2">
+                        <div className="w-1/3 flex flex-row justify-between font-bold">
+                          <div className="">Sijil Pelajaran Malaysia (SPM)</div>
+                          <div className="">-</div>
+                        </div>
+                        <div className="">
+                          SMK Sultan Abdul Aziz Shah (2009-2011)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-auto w-full">
+                    <div className="text-xl font-semibold text-gray-800">
+                      My Philosophy
+                    </div>
+                    <div className=" text-gray-700">
+                      <div className="w-full flex flex-row gap-2">
+                        As a fast learner and problem solver, I thrive in
+                        challenging environments. My goal is to design and
+                        develop user-friendly solutions that empower people to
+                        work seamlessly, anytime and anywhere.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Career Journey */}
-          {/* <div className="mt-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              Career Journey
-            </h3>
-            <ul className="space-y-4 text-gray-700">
-              <li>
-                <strong>Software Developer</strong> at Rayatech Sdn. Bhd. (Mar
-                2023 - Present):
-                <p>
-                  Designing and implementing client-based solutions with a focus
-                  on responsive UI/UX and scalable backend systems.
-                </p>
-              </li>
-              <li>
-                <strong>Interior Designer</strong> at Ezkay Sdn. Bhd. (Oct 2021
-                - Sep 2022):
-                <p>
-                  Designed innovative and functional interior spaces, combining
-                  aesthetics with practicality.
-                </p>
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Education Section */}
-          {/* <div className="mt-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              Education
-            </h3>
-            <ul className="space-y-4 text-gray-700">
-              <li>
-                <strong>Diploma in Software Development</strong> - Code
-                Institute (2020-2021): Focused on HTML, CSS, JavaScript, and
-                Python.
-              </li>
-              <li>
-                <strong>Bachelor of Science in Architectural Studies</strong> -
-                Limkokwing University (2016-2018): Graduated with a CGPA of 3.34
-                and represented the university in the Malaysian Timber Award
-                Competition.
-              </li>
-              <li>
-                <strong>Diploma in Architecture</strong> - Politeknik Port
-                Dickson (2012-2015): Graduated with a CGPA of 3.01.
-              </li>
-              <li>
-                <strong>SPM</strong> - SMK Sultan Abdul Aziz Shah (2009-2011).
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Personal Philosophy */}
-          {/* <div className="mt-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              My Philosophy
-            </h3>
-            <p className="text-lg text-gray-700">
-              As a fast learner and problem solver, I thrive in challenging
-              environments. My goal is to design and develop user-friendly
-              solutions that empower people to work seamlessly, anytime and
-              anywhere.
-            </p>
-          </div> */}
         </div>
       </section>
     </div>

@@ -66,9 +66,9 @@ const Navbar: React.FC = () => {
         >
           About
         </Button>
-        <Button className="bg-transparent text-sm hover:bg-transparent text-orange-800 font-semibold shadow-md hover:shadow-gray-100 hover:text-orange-500">
+        {/* <Button className="bg-transparent text-sm hover:bg-transparent text-orange-800 font-semibold shadow-md hover:shadow-gray-100 hover:text-orange-500">
           Projects
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
