@@ -146,19 +146,6 @@ const Body: React.FC = () => {
                 <div className="h-full w-full flex flex-col gap-3">
                   <div className="h-auto w-full">
                     <div className="text-base lg:text-xl font-semibold text-gray-800">
-                      My Philosophy
-                    </div>
-                    <div className=" text-gray-700">
-                      <div className="w-full flex flex-row gap-2 tracking-tighter leading-tight text-tiny">
-                        As a fast learner and problem solver, I thrive in
-                        challenging environments. My goal is to design and
-                        develop user-friendly solutions that empower people to
-                        work seamlessly, anytime and anywhere.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-auto w-full">
-                    <div className="text-base lg:text-xl font-semibold text-gray-800">
                       Career Journey
                     </div>
                     <div className=" text-gray-700">
