@@ -8,29 +8,44 @@ import { GiSkills } from "react-icons/gi";
 
 const Body: React.FC = () => {
   return (
-    <div className="h-screen-50 sm:min-h-full w-full overflow-y-auto snap-mandatory snap-y">
+    <div className="h-full sm:min-h-full w-full overflow-y-auto snap-mandatory snap-y">
       <section
         id="home"
-        className=" snap-center h-full w-full bg-hero bg-no-repeat bg-cover bg-right text-orange-200 text-center"
+        className=" snap-center h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200 text-center"
       >
         {/* <div className="h-full w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-20 text-center"> */}
-        <div className="h-full w-full flex flex-col items-start justify-end mx-auto bg-black bg-opacity-50 p-10 pb-40">
-          <div className="h-full w-full flex flex-col items-start justify-end mx-auto gap-5 font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
-            <div className="text-5xl font-bold">Hello !!!</div>
+        <div className="h-full w-full flex flex-col items-start justify-end mx-auto bg-black bg-opacity-60 p-10 pb-20 md:pb-40">
+          <div className="h-full w-full flex flex-col items-start justify-end mx-auto leading-tight font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
+            <div className="flex flex-row text-4xl md:text-6xl font-semibold gap-2 leading-relaxed">
+              <div className="">Hello!</div>
+              {/* <div className="md:hidden">
+                , I&apos;m
+              </div> */}
+            </div>
             <div className="w-full flex flex-row gap-5 self-baseline">
-              <div className="flex items-end justify-end text-8xl font-extrabold tracking-wide">
-                I&apos;m Syafiq RAez
+              <div className="h-full flex flex-col">
+                <div className="w-full flex justify-start text-3xl md:text-4xl font-bold tracking-wide leading-3">
+                  I&apos;m
+                </div>
+                <div className="w-full flex flex-row items-end justify-center font-extrabold tracking-tight md:tracking-widest leading-3">
+                  <div className="w-full flex justify-start text-9xl md:text-[clamp(3rem,20vw,12rem)]">
+                    S
+                  </div>
+                  <div className="w-full flex justify-start text-8xl">
+                    yafiq
+                  </div>
+                </div>
+                <div className="w-full flex items-end justify-end text-5xl font-extrabold tracking-wide">
+                  RAez
+                </div>
               </div>
             </div>
-            <div className="w-full flex flex-col items-start text-sm text-white font-normal tracking-widest">
-              <div className="">
-                A Fullstack Developer and UI/UX Designer, I am a passionate
-                software developer
-              </div>
-              <div className="">
-                with experience in building responsive and user-friendly
-                applications.
-              </div>
+            <div className="w-full md:w-2/3 text-center md:text-left text-sm text-white font-normal tracking-widest">
+              Fullstack Developer and UI/UX Designer with a passion for creating
+              modern, efficient, and scalable digital solutions. Experienced in
+              building responsive and user-friendly applications, focusing on
+              clean interfaces, performance, and seamless experiences across all
+              devices.
             </div>
           </div>
         </div>

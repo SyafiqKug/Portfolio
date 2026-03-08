@@ -55,14 +55,14 @@ const Navbar: React.FC = () => {
     >
       <Button
         onClick={handleScrollToHome}
-        className="w-1/3 text-base lg:text-xl tracking-wider font-medium bg-transparent hover:bg-transparent text-white focus:bg-transparent hover:text-white focus:text-white"
+        className="text-base lg:text-xl tracking-wider font-medium bg-transparent hover:bg-transparent text-white focus:bg-transparent hover:text-white focus:text-white"
       >
         Syafiq RAez
       </Button>
-      <div className="w-1/3 flex flex-row justify-end gap-2">
+      <div className="flex flex-row justify-end gap-2">
         <Button
           onClick={handleScrollToAbout}
-          className="bg-transparent text-sm hover:bg-transparent text-orange-800 font-semibold shadow-md hover:shadow-gray-100 hover:text-orange-500"
+          className="bg-transparent text-sm focus:bg-transparent hover:bg-transparent text-orange-700 font-bold hover:text-orange-600 focus:text-orange-400"
         >
           About
         </Button>
