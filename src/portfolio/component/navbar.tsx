@@ -17,7 +17,6 @@ const Navbar: React.FC = () => {
       aboutSection.scrollIntoView({ behavior: "smooth" });
       setIsClicked(true);
     }
-    
   };
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const Navbar: React.FC = () => {
           setIsClicked(entry.isIntersecting); // Update state based on visibility
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }, // Trigger when 50% of the section is visible
     );
 
     if (aboutSection) {
@@ -41,17 +40,14 @@ const Navbar: React.FC = () => {
       }
     };
   }, []);
-  
+
   return (
     <div
       className={`${
-        //   isClicked
-        //     ?""
-        //     :
         isClicked
-          ? "relative w-full shadow-gray-700 shadow-lg flex flex-row justify-between items-center text-white bg-black py-2 px-5" // Solid background and relative positioning
-          : "absolute w-full shadow-gray-700 shadow-lg flex flex-row justify-between items-center text-white bg-black bg-opacity-70 py-2 px-5" // Semi-transparent background
-      } w-full py-4 px-6 transition-all duration-300`}
+          ? "relative w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-gray-800 py-2 px-5" // Solid background and relative positioning
+          : "absolute w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-black bg-opacity-70 py-2 px-5" // Semi-transparent background
+      } w-full py-2 px-5 transition-all duration-300`}
     >
       <Button
         onClick={handleScrollToHome}
@@ -62,9 +58,13 @@ const Navbar: React.FC = () => {
       <div className="flex flex-row justify-end gap-2">
         <Button
           onClick={handleScrollToAbout}
-          className="bg-transparent text-sm focus:bg-transparent hover:bg-transparent text-orange-700 font-bold hover:text-orange-600 focus:text-orange-400"
+          className={`bg-transparent text-sm focus:bg-transparent hover:bg-transparent font-bold ${
+            isClicked
+              ? "text-orange-400 hover:text-orange-600 focus:text-orange-400"
+              : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
+          }`}
         >
-          About
+          About Me
         </Button>
         {/* <Button className="bg-transparent text-sm hover:bg-transparent text-orange-800 font-semibold shadow-md hover:shadow-gray-100 hover:text-orange-500">
           Projects

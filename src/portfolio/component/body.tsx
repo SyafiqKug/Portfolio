@@ -13,7 +13,6 @@ const Body: React.FC = () => {
         id="home"
         className=" snap-center h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200 text-center"
       >
-        {/* <div className="h-full w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-20 text-center"> */}
         <div className="h-full w-full flex flex-col items-start justify-end mx-auto bg-black bg-opacity-60 p-10 pb-20 md:pb-40">
           <div className="h-full w-full flex flex-col items-start justify-end mx-auto leading-tight font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
             <div className="flex flex-row text-4xl md:text-6xl font-semibold gap-2 leading-relaxed">
@@ -27,11 +26,11 @@ const Body: React.FC = () => {
                 <div className="w-full flex justify-start text-3xl md:text-4xl font-bold tracking-wide leading-3">
                   I&apos;m
                 </div>
-                <div className="w-full flex flex-row items-end justify-center font-extrabold tracking-tight md:tracking-widest leading-3">
-                  <div className="w-full flex justify-start text-9xl md:text-[clamp(3rem,20vw,12rem)]">
+                <div className="w-full flex flex-row items-baseline font-extrabold tracking-tight md:tracking-widest leading-3">
+                  <div className="w-full flex justify-start text-9xl md:text-[clamp(3rem,40vw,24rem)]">
                     S
                   </div>
-                  <div className="w-full flex justify-start text-8xl">
+                  <div className="w-full flex justify-start text-8xl md:text-[clamp(3rem,30vw,12rem)]">
                     yafiq
                   </div>
                 </div>
@@ -50,13 +49,16 @@ const Body: React.FC = () => {
           </div>
         </div>
       </section>
-      <section
+      <section id="about" className="snap-center h-full w-full flex flex-row">
+        <div className=""></div>
+      </section>
+      {/* <section
         id="about"
         className="snap-center h-full w-full flex flex-row items-start justify-end  bg-gray-100"
-      >
-        <div className="h-full w-2/6 md:w-1/5 flex flex-col bg-gray-400 p-5 divide-y-2 divide-gray-600 gap-10">
-          <div className="h-1/4 w-full flex items-center justify-center">
-            <div className="h-48 w-48 flex items-center justify-end rounded-full overflow-hidden shadow-lg shadow-gray-900">
+      > */}
+      {/* <div className="h-full w-2/6 md:w-1/5 flex flex-col bg-gray-400 p-5 divide-y-2 divide-gray-600 gap-10"> */}
+      {/* <div className="h-1/4 w-full flex items-center justify-center"> */}
+      {/* <div className="h-48 w-48 flex items-center justify-end rounded-full overflow-hidden shadow-lg shadow-gray-900">
               <Image
                 src="/images/saya2.jpg"
                 width={400}
@@ -64,9 +66,9 @@ const Body: React.FC = () => {
                 alt=""
                 className="h-52 w-52"
               />
-            </div>
-          </div>
-          <div className="h-3/4 flex flex-col gap-3">
+            </div> */}
+      {/* </div> */}
+      {/* <div className="h-3/4 flex flex-col gap-3">
             <div className="h-1/2 flex flex-col gap-3">
               <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
                 <div className="w-1/12">
@@ -136,15 +138,14 @@ const Body: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="h-full w-4/6 md:w-4/5 p-5">
-          <div className="h-screen-40 sm:min-h-full w-full flex flex-col overflow-y-auto container border-2 border-gray-500 rounded-lg overflow-hidden p-2">
-            <div className="w-full text-2xl font-bold text-gray-800">
-              About Me
-            </div>
-            <div className="h-full w-full flex flex-col gap-5">
-              {/* Personal Details */}
+          </div> */}
+      {/* </div> */}
+      {/* <div className="h-full w-4/6 md:w-4/5 p-5">
+          <div className="h-full w-full flex flex-col overflow-y-auto border-2 border-gray-500 rounded-lg overflow-hidden">
+            <div className="h-full w-full flex flex-col">
+              <div className="w-full text-xl font-bold text-gray-800">
+                About Me
+              </div>
               <div className="flex flex-col gap-2">
                 <div className="text-tiny text-gray-700 tracking-tighter leading-tight">
                   Hi, I am a passionate and versatile professional with a
@@ -321,8 +322,8 @@ const Body: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div> */}
+      {/* </section> */}
     </div>
   );
 };
