@@ -2,3 +2,39 @@
 @tailwind components;
 @tailwind utilities;
  
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(80, 80, 80, 0.45) transparent;
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 80, 0.45);
+  border-radius: 999px;
+  border: none !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 80, 80, 0.7);
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
