@@ -14,27 +14,27 @@ const Body: React.FC = () => {
         className=" snap-center h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200 text-center"
       >
         <div className="h-full w-full flex flex-col items-start justify-end mx-auto bg-black bg-opacity-60 p-10 pb-20 md:pb-40">
-          <div className="h-full w-full flex flex-col items-start justify-end mx-auto leading-tight font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
-            <div className="flex flex-row text-4xl md:text-6xl font-semibold gap-2 leading-relaxed">
+          <div className="h-full w-full flex flex-col items-start justify-end mx-auto leading-5 md:leading-tight font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
+            <div className="flex flex-row text-2xl md:text-6xl font-semibold gap-2 leading-relaxed">
               <div className="">Hello!</div>
               {/* <div className="md:hidden">
                 , I&apos;m
               </div> */}
             </div>
             <div className="w-full flex flex-row gap-5 self-baseline">
-              <div className="h-full flex flex-col">
-                <div className="w-full flex justify-start text-3xl md:text-4xl font-bold tracking-wide leading-3">
+              <div className="h-full flex flex-col leading-10">
+                <div className="w-full flex justify-start text-xl md:text-4xl font-bold tracking-wide leading-3">
                   I&apos;m
                 </div>
                 <div className="w-full flex flex-row items-baseline font-extrabold tracking-tight md:tracking-widest leading-3">
-                  <div className="w-full flex justify-start text-9xl md:text-[clamp(3rem,40vw,24rem)]">
+                  <div className="w-full flex justify-start text-8xl lg:text-[clamp(3rem,40vw,24rem)]">
                     S
                   </div>
-                  <div className="w-full flex justify-start text-8xl md:text-[clamp(3rem,30vw,12rem)]">
+                  <div className="w-full flex justify-start text-7xl md:text-[clamp(3rem,30vw,12rem)]">
                     yafiq
                   </div>
                 </div>
-                <div className="w-full flex items-end justify-end text-5xl font-extrabold tracking-wide">
+                <div className="w-full flex items-end justify-end text-4xl  lg:text-[clamp(3rem,1vw,24rem)] font-extrabold tracking-wide">
                   RAez
                 </div>
               </div>
