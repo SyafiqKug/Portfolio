@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoIosMail, IoIosMailUnread } from "react-icons/io";
 import { IoCallSharp } from "react-icons/io5";
@@ -7,6 +7,22 @@ import { FaLocationDot } from "react-icons/fa6";
 import { GiSkills } from "react-icons/gi";
 
 const Body: React.FC = () => {
+  const images = [
+    "/images/saya1.jpg",
+    "/images/saya2.jpg",
+    "/images/saya3.jpg",
+    "/images/saya4.jpg",
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 9000); // change every 9 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="h-full sm:min-h-full w-full overflow-y-auto snap-mandatory snap-y">
       <section
@@ -50,7 +66,37 @@ const Body: React.FC = () => {
         </div>
       </section>
       <section id="about" className="snap-center h-full w-full flex flex-row">
-        <div className=""></div>
+        <div className="h-full w-full md:w-1/4 flex flex-row md:flex-col items-center justify-start bg-sky-100 p-5 gap-4">
+
+          {/* Picture area */}
+          <div className="w-full flex flex-col items-center justify-start gap-2">
+            <div className="h-32 md:h-40 xl:h-48 w-32 md:w-40 xl:w-48 flex items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
+              <Image
+                src={images[currentImage]}
+                width={400}
+                height={400}
+                alt="Profile"
+                className="h-52 w-52 object-cover"
+              />
+            </div>
+
+            {/* Radio-style buttons */}
+            <div className="flex items-center gap-3">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  aria-label={`Show image ${index + 1}`}
+                  className={`h-3 w-3 rounded-full border transition-all duration-300 ${
+                    currentImage === index
+                      ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
+                      : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
       {/* <section
         id="about"
