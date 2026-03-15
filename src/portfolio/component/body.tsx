@@ -24,38 +24,40 @@ const Body: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="h-full sm:min-h-full w-full overflow-y-auto snap-mandatory snap-y">
+    <div className="h-full w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
       <section
         id="home"
-        className=" snap-center h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200 text-center"
+        className="relative snap-center h-full min-h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200"
       >
-        <div className="h-full w-full flex flex-col items-start justify-end mx-auto bg-black bg-opacity-60 p-10 pb-20 md:pb-40">
-          <div className="h-full w-full flex flex-col items-start justify-end mx-auto leading-5 md:leading-tight font-extrabold bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text ">
-            <div className="flex flex-row text-2xl md:text-6xl font-semibold gap-2 leading-relaxed">
-              <div className="">Hello!</div>
-              {/* <div className="md:hidden">
-                , I&apos;m
-              </div> */}
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full w-full flex flex-col justify-end p-5 md:p-10 lg:pb-40 xl:pb-24">
+          <div className="h-full flex flex-col justify-end bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text">
+            <div className="text-2xl xl:text-5xl font-semibold leading-none">
+              Hello!
             </div>
-            <div className="w-full flex flex-row gap-5 self-baseline">
-              <div className="h-full flex flex-col leading-10">
-                <div className="w-full flex justify-start text-xl md:text-4xl font-bold tracking-wide leading-3">
-                  I&apos;m
+
+            <div className="text-xl md:text-4xl font-bold leading-none">
+              I'm
+            </div>
+
+            <div className="w-full md:w-3/5 flex items-baseline gap-2 font-extrabold tracking-tighter md:tracking-tighter leading-none text-left">
+              <div className="flex items-baseline font-extrabold tracking-tighter leading-none">
+                <div className="text-9xl md:text-[clamp(3rem,35vw,20rem)] lg:text-[clamp(3rem,40vw,24rem)] leading-none">
+                  S
                 </div>
-                <div className="w-full flex flex-row items-baseline font-extrabold tracking-tight md:tracking-widest leading-3">
-                  <div className="w-full flex justify-start text-8xl lg:text-[clamp(3rem,40vw,24rem)]">
-                    S
-                  </div>
-                  <div className="w-full flex justify-start text-7xl md:text-[clamp(3rem,30vw,12rem)]">
-                    yafiq
-                  </div>
-                </div>
-                <div className="w-full flex items-end justify-end text-4xl  lg:text-[clamp(3rem,1vw,24rem)] font-extrabold tracking-wide">
-                  RAez
+                <div className="text-8xl md:text-[clamp(3rem,25vw,8rem)] lg:text-[clamp(3rem,30vw,12rem)] leading-none tracking-tighter">
+                  yafiq
                 </div>
               </div>
+              <div className="text-4xl md:text-[clamp(1rem,10vw,3rem)] font-extrabold leading-none">
+                RAez
+              </div>
             </div>
-            <div className="w-full md:w-2/3 text-center md:text-left text-sm text-white font-normal tracking-widest">
+
+            <div className="min-w-x max-w-4xl xl:max-w-6xl text-sm text-white tracking-widest">
               Fullstack Developer and UI/UX Designer with a passion for creating
               modern, efficient, and scalable digital solutions. Experienced in
               building responsive and user-friendly applications, focusing on
@@ -65,23 +67,22 @@ const Body: React.FC = () => {
           </div>
         </div>
       </section>
-      <section id="about" className="snap-center h-full w-full flex flex-row">
-        <div className="h-full w-full md:w-1/4 flex flex-row md:flex-col items-center justify-start bg-sky-100 p-5 gap-4">
-
+      <section
+        id="about"
+        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden"
+      >
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 p-5 box-border">
           {/* Picture area */}
-          <div className="w-full flex flex-col items-center justify-start gap-2">
-            <div className="h-32 md:h-40 xl:h-48 w-32 md:w-40 xl:w-48 flex items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
-              <Image
-                src={images[currentImage]}
-                width={400}
-                height={400}
-                alt="Profile"
-                className="h-52 w-52 object-cover"
-              />
-            </div>
-
+          <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
+            <Image
+              src={images[currentImage]}
+              width={400}
+              height={400}
+              alt="Profile"
+              className="h-[clamp(3rem,20vw,8rem)] w-[clamp(3rem,20vw,8rem)] md:h-[clamp(5rem,20vw,12rem)] md:w-[clamp(5rem,20vw,12rem)] xl:h-[clamp(5rem,20vw,15rem)] xl:w-[clamp(5rem,20vw,15rem)] object-cover"
+            />
             {/* Radio-style buttons */}
-            <div className="flex items-center gap-3">
+            <div className="absolute bottom-5 flex items-center gap-3">
               {images.map((_, index) => (
                 <button
                   key={index}
@@ -96,6 +97,7 @@ const Body: React.FC = () => {
               ))}
             </div>
           </div>
+          <div className="h-auto w-full"></div>
         </div>
       </section>
       {/* <section

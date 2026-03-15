@@ -5,9 +5,9 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="relative h-screen w-full flex flex-col">
+    <div className="relative h-screen w-full flex flex-col overflow-hidden">
       <Navbar />
-      <div className="h-full w-full flex-1 flex items-center justify-center">
+      <div className="w-full flex-1 overflow-hidden">
         <Body />
       </div>
       <Footer />

@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
         isClicked
           ? "relative w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-gray-800 py-2 px-5" // Solid background and relative positioning
           : "absolute w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-black bg-opacity-70 py-2 px-5" // Semi-transparent background
-      } w-full py-2 px-5 transition-all duration-300`}
+      } w-full py-2 px-5 transition-all duration-300 z-50`}
     >
       <Button
         onClick={handleScrollToHome}
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
       <div className="flex flex-row justify-end gap-2">
         <Button
           onClick={handleScrollToAbout}
-          className={`bg-transparent text-sm focus:bg-transparent hover:bg-transparent font-bold ${
+          className={`bg-transparent text-[clamp(1.5rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-bold ${
             isClicked
               ? "text-orange-400 hover:text-orange-600 focus:text-orange-400"
               : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
