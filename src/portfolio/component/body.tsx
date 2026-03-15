@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { IoIosMail, IoIosMailUnread } from "react-icons/io";
-import { IoCallSharp } from "react-icons/io5";
+import { IoIosMail, IoIosMailUnread, IoLogoLinkedin } from "react-icons/io";
+import { IoCallSharp, IoLocationSharp, IoMailOpenOutline } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiSkills } from "react-icons/gi";
@@ -71,7 +71,7 @@ const Body: React.FC = () => {
         id="about"
         className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden"
       >
-        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 p-5 box-border">
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-5 py-5">
           {/* Picture area */}
           <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
             <Image
@@ -97,15 +97,60 @@ const Body: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="h-auto w-full"></div>
+          <div className="w-full pl-5">
+            <div className="text-[clamp(0.5rem,5vw,1.5rem)] font-semibold tracking-tight uppercase leading-8 text-slate-700">
+              Contact
+            </div>
+
+            <div className="h-[5px] w-full bg-slate-700" />
+
+            <div className="mt-3 space-y-3 text-[14px]">
+              <div className="flex items-center gap-2">
+                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                  <IoLocationSharp className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
+                </div>
+                <span className="text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest">Kajang, Selangor</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                  <IoMailOpenOutline className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
+                </div>
+                <span className="text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest">syafiqrazak669@gmail.com</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                  <IoLogoLinkedin className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
+                </div>
+                <a
+                  href="https://linkedin.com/in/syafiq-muhammad-088a2912a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest"
+                >
+                  syafiq-muhammad-088a2912a
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                  <FaGithub className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
+                </div>
+                <a
+                  href="https://github.com/SyafiqKug"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest"
+                >
+                  github.com/SyafiqKug
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      {/* <section
-        id="about"
-        className="snap-center h-full w-full flex flex-row items-start justify-end  bg-gray-100"
-      > */}
-      {/* <div className="h-full w-2/6 md:w-1/5 flex flex-col bg-gray-400 p-5 divide-y-2 divide-gray-600 gap-10"> */}
-      {/* <div className="h-1/4 w-full flex items-center justify-center"> */}
+
       {/* <div className="h-48 w-48 flex items-center justify-end rounded-full overflow-hidden shadow-lg shadow-gray-900">
               <Image
                 src="/images/saya2.jpg"
