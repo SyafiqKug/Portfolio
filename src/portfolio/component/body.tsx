@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoIosMail, IoIosMailUnread, IoLogoLinkedin } from "react-icons/io";
-import { IoCallSharp, IoLocationSharp, IoMailOpenOutline } from "react-icons/io5";
+import {
+  IoCallSharp,
+  IoLocationSharp,
+  IoMailOpenOutline,
+} from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiSkills } from "react-icons/gi";
+import { RiSpeakFill } from "react-icons/ri";
+import SkillCloud from "@/component/skill";
 
 const Body: React.FC = () => {
   const images = [
@@ -15,6 +21,19 @@ const Body: React.FC = () => {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
+
+  const [copied, setCopied] = useState(false);
+
+  const email = "syafiqrazak669@gmail.com";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,7 +90,7 @@ const Body: React.FC = () => {
         id="about"
         className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden"
       >
-        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-5 py-5">
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5">
           {/* Picture area */}
           <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
             <Image
@@ -79,7 +98,7 @@ const Body: React.FC = () => {
               width={400}
               height={400}
               alt="Profile"
-              className="h-[clamp(3rem,20vw,8rem)] w-[clamp(3rem,20vw,8rem)] md:h-[clamp(5rem,20vw,12rem)] md:w-[clamp(5rem,20vw,12rem)] xl:h-[clamp(5rem,20vw,15rem)] xl:w-[clamp(5rem,20vw,15rem)] object-cover"
+              className="h-[clamp(3rem,20vw,6rem)] w-[clamp(3rem,20vw,6rem)] md:h-[clamp(5rem,20vw,10rem)] md:w-[clamp(5rem,20vw,10rem)] xl:h-[clamp(5rem,20vw,13rem)] xl:w-[clamp(5rem,20vw,13rem)] object-cover"
             />
             {/* Radio-style buttons */}
             <div className="absolute bottom-5 flex items-center gap-3">
@@ -97,141 +116,124 @@ const Body: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="w-full pl-5">
-            <div className="text-[clamp(0.5rem,5vw,1.5rem)] font-semibold tracking-tight uppercase leading-8 text-slate-700">
-              Contact
+          {/* Detail area */}
+          <div className="w-full flex flex-col pl-5 gap-1">
+            {/* Contact area */}
+            <div className="w-full">
+              <div className="text-[clamp(0.5rem,5vw,1.2rem)] font-bold tracking-tight uppercase leading-8 text-slate-700">
+                Contact
+              </div>
+
+              <div className="h-[5px] w-full bg-slate-700" />
+
+              <div className="mt-3 space-y-1 text-[14px]">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                    <IoLocationSharp className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                  </div>
+                  <span className="text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest">
+                    Kajang, Selangor
+                  </span>
+                </div>
+
+                <div className="w-full flex items-center justify-between gap-3 pr-5">
+                  {/* Email Link */}
+                  <a
+                    href="mailto:syafiqrazak669@gmail.com?subject=Contact%20from%20Portfolio&body=Hello%20Syafiq,%20I%20would%20like%20to%20connect%20with%20you."
+                    className="flex items-center gap-2 group transition-all duration-300 hover:opacity-80 cursor-pointer"
+                    aria-label="Send email to Syafiq"
+                  >
+                    <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white transition-all duration-300 group-hover:bg-slate-600">
+                      <IoMailOpenOutline className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                    </div>
+
+                    <span className="text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest underline-offset-4 group-hover:underline">
+                      {email}
+                    </span>
+                  </a>
+
+                  {/* Copy Button */}
+                  <button
+                    onClick={handleCopy}
+                    className="text-xs px-2 py-1 rounded-md bg-slate-700 text-white hover:bg-slate-600 transition"
+                  >
+                    {copied ? "Copied!" : "Copy"}
+                  </button>
+                </div>
+
+                <div className="flex items-center gap-2 group transition-all duration-300 hover:opacity-80 cursor-pointer">
+                  <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white transition-all duration-300 group-hover:bg-slate-600">
+                    <IoLogoLinkedin className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                  </div>
+                  <a
+                    href="https://linkedin.com/in/syafiq-muhammad-088a2912a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest group"
+                  >
+                    syafiq-muhammad-088a2912a
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2 group transition-all duration-300 hover:opacity-80 cursor-pointer">
+                  <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white transition-all duration-300 group-hover:bg-slate-600">
+                    <FaGithub className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                  </div>
+                  <a
+                    href="https://github.com/SyafiqKug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest"
+                  >
+                    github.com/SyafiqKug
+                  </a>
+                </div>
+              </div>
             </div>
-
-            <div className="h-[5px] w-full bg-slate-700" />
-
-            <div className="mt-3 space-y-3 text-[14px]">
-              <div className="flex items-center gap-2">
-                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
-                  <IoLocationSharp className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
-                </div>
-                <span className="text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest">Kajang, Selangor</span>
+            {/* Language area */}
+            <div className="w-full">
+              <div className="text-[clamp(0.5rem,5vw,1.2rem)] font-bold tracking-tight uppercase leading-8 text-slate-700">
+                Language
               </div>
 
-              <div className="flex items-center gap-2">
-                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
-                  <IoMailOpenOutline className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
+              <div className="h-[5px] w-full bg-slate-700" />
+
+              <div className="mt-3 space-y-1 text-[14px]">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                    <RiSpeakFill className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                  </div>
+                  <span className="text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest">
+                    English – Intermediate
+                  </span>
                 </div>
-                <span className="text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest">syafiqrazak669@gmail.com</span>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex h-[clamp(0.5rem,5vw,1.6rem)] w-[clamp(0.5rem,5vw,1.6rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
+                    <RiSpeakFill className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
+                  </div>
+                  <span className="text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest">
+                    Bahasa Melayu – Native
+                  </span>
+                </div>
+              </div>
+            </div>
+            {/* Skill area */}
+            <div className="w-full">
+              <div className="text-[clamp(0.5rem,5vw,1.2rem)] font-bold tracking-tight uppercase leading-8 text-slate-700">
+                Skill / Tools
               </div>
 
-              <div className="flex items-center gap-2">
-                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
-                  <IoLogoLinkedin className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
-                </div>
-                <a
-                  href="https://linkedin.com/in/syafiq-muhammad-088a2912a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest"
-                >
-                  syafiq-muhammad-088a2912a
-                </a>
-              </div>
+              <div className="h-[5px] w-full bg-slate-700" />
 
-              <div className="flex items-center gap-2">
-                <div className="flex h-[clamp(0.5rem,5vw,2rem)] w-[clamp(0.5rem,5vw,2rem)] items-center justify-center rounded-full border border-slate-500 bg-slate-700 text-white">
-                  <FaGithub className="h-[clamp(0.5rem,5vw,1.5rem)] w-[clamp(0.5rem,5vw,1.5rem)]" />
-                </div>
-                <a
-                  href="https://github.com/SyafiqKug"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline text-[clamp(0.8rem,5vw,1.1rem)] font-medium tracking-tighter xl:tracking-widest"
-                >
-                  github.com/SyafiqKug
-                </a>
+              <div className="space-y-1 text-[14px] pr-5">
+                <SkillCloud />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* <div className="h-48 w-48 flex items-center justify-end rounded-full overflow-hidden shadow-lg shadow-gray-900">
-              <Image
-                src="/images/saya2.jpg"
-                width={400}
-                height={200}
-                alt=""
-                className="h-52 w-52"
-              />
-            </div> */}
-      {/* </div> */}
-      {/* <div className="h-3/4 flex flex-col gap-3">
-            <div className="h-1/2 flex flex-col gap-3">
-              <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
-                <div className="w-1/12">
-                  <IoIosMail className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-                <div className="w-11/12 font-medium tracking-widest">
-                  syafiq_razak@hotmail.com
-                </div>
-              </div>
-              <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
-                <div className="w-1/12">
-                  <IoCallSharp className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-                <div className="w-11/12 font-medium tracking-widest">
-                  012-3245341
-                </div>
-              </div>
-              <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
-                <div className="w-1/12">
-                  <FaLinkedin className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-                <div className="w-11/12 tracking-tight font-medium">
-                  http://linkedin.com/in/syafiq­muhammad-088a2912a
-                </div>
-              </div>
-              <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
-                <div className="w-1/12">
-                  <FaLocationDot className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-                <div className="w-11/12 font-medium tracking-widest">
-                  Kajang, Selangor
-                </div>
-              </div>
-              <div className="w-full flex flex-row items-center justify-start text-sm gap-3">
-                <div className="w-1/12">
-                  <FaGithub className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-                <div className="w-11/12 font-medium tracking-widest">
-                  SyafiqKug
-                </div>
-              </div>
-            </div>
-            <div className="h-1/2 flex flex-col bg-white rounded-md p-2 divide-y divide-gray-500">
-              <div className="w-full flex flex-row items-center justify-evenly text-sm gap-3">
-                <div className="text-base lg:text-tiny font-bold lg:font-medium tracking-widest">
-                  Personal Skill
-                </div>
-                <div className="">
-                  <GiSkills className="h-6 lg:h-8 w-6 lg:w-8" />
-                </div>
-              </div>
-              <div className="w-full flex flex-col items-center justify-start text-sm gap-3 pt-5">
-                <div className="w-full text-center font-medium tracking-widest">
-                  Leadership
-                </div>
-                <div className="w-full text-center font-medium tracking-widest">
-                  Teamwork
-                </div>
-                <div className="w-full text-center font-medium tracking-widest">
-                  Multi-Tasking
-                </div>
-                <div className="w-full text-center font-medium tracking-widest">
-                  Fast Learner
-                </div>
-                <div className="w-full text-center font-medium tracking-widest">
-                  Perfectionist
-                </div>
-              </div>
-            </div>
-          </div> */}
       {/* </div> */}
       {/* <div className="h-full w-4/6 md:w-4/5 p-5">
           <div className="h-full w-full flex flex-col overflow-y-auto border-2 border-gray-500 rounded-lg overflow-hidden">
