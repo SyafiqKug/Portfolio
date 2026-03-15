@@ -88,7 +88,7 @@ const Body: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   aria-label={`Show image ${index + 1}`}
-                  className={`h-3 w-3 rounded-full border transition-all duration-300 ${
+                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${
                     currentImage === index
                       ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
                       : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
