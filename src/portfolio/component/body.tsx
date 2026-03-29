@@ -167,12 +167,12 @@ const Body: React.FC = () => {
                       <IoLogoLinkedin className="h-[clamp(0.5rem,5vw,1rem)] w-[clamp(0.5rem,5vw,1rem)]" />
                     </div>
                     <a
-                      href="https://linkedin.com/in/syafiq-muhammad-088a2912a"
+                      href="https://linkedin.com/in/syafiq-razak-088a2912a/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:underline text-[clamp(0.8rem,5vw,1rem)] font-medium tracking-tighter xl:tracking-widest group"
                     >
-                      syafiq-muhammad-088a2912a
+                      syafiq-razak-088a2912a/
                     </a>
                   </div>
 
