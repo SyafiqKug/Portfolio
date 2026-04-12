@@ -5,6 +5,7 @@ import {
   IoCallSharp,
   IoLocationSharp,
   IoMailOpenOutline,
+  IoPersonCircle,
 } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -23,6 +24,7 @@ const Body: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const [copied, setCopied] = useState(false);
+  const [aboutMe, setAboutMe] = useState(true);
 
   const email = "syafiqrazak669@gmail.com";
 
@@ -33,6 +35,12 @@ const Body: React.FC = () => {
     setTimeout(() => {
       setCopied(false);
     }, 2000);
+  };
+
+  const handleClick = (buttonName: string) => {
+    if (buttonName === 'aboutMe') {
+      setAboutMe(false);
+    }
   };
 
   useEffect(() => {
@@ -77,18 +85,14 @@ const Body: React.FC = () => {
             </div>
 
             <div className="min-w-x max-w-4xl xl:max-w-6xl text-sm text-white tracking-widest">
-              Fullstack Developer and UI/UX Designer with a passion for creating
-              modern, efficient, and scalable digital solutions. Experienced in
-              building responsive and user-friendly applications, focusing on
-              clean interfaces, performance, and seamless experiences across all
-              devices.
+              This is my personal resume and portfolio, showcasing my journey as a Fullstack Developer and UI/UX Designer. It highlights my background, technical skills, and selected projects, reflecting my passion for building modern, efficient, and user-centered digital experiences.
             </div>
           </div>
         </div>
       </section>
       <section
         id="about"
-        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden"
+        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700"
       >
         <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5">
           {/* Picture area */}
@@ -107,11 +111,10 @@ const Body: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   aria-label={`Show image ${index + 1}`}
-                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${
-                    currentImage === index
-                      ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
-                      : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
-                  }`}
+                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${currentImage === index
+                    ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
+                    : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
+                    }`}
                 />
               ))}
             </div>
@@ -234,11 +237,15 @@ const Body: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* <div className="h-full w-4/6 md:w-4/5 p-5">
-          <div className="h-full w-full flex flex-col overflow-y-auto border-2 border-gray-500 rounded-lg overflow-hidden">
-            <div className="h-full w-full flex flex-col">
+        <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-4">
+          <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10">
+            <button onClick={() => handleClick("aboutMe")} name="aboutMe" className={`${aboutMe ? 'bg-sky-900 text-orange-400  font-semibold' : 'bg-sky-300 font-semibold'} hover:bg-sky-500 hover:text-black flex flex-row items-center justify-center py-1 px-3 rounded-full border-2 border-slate-700 gap-2`} >
+              <IoPersonCircle className="h-5 md:h-6 w-5 md:w-6" />
+              <div className="">About Me</div>
+            </button>
+          </div>
+          <div className="h-full w-full flex flex-col overflow-y-auto border-2 border-slate-700 rounded-lg overflow-hidden mt-4">
+            {/* <div className="h-full w-full flex flex-col">
               <div className="w-full text-xl font-bold text-gray-800">
                 About Me
               </div>
@@ -416,9 +423,10 @@ const Body: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
-        </div> */}
+        </div>
+      </section>
     </div>
   );
 };
