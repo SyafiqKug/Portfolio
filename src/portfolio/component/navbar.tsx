@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./button";
 
-const Navbar: React.FC = () => {
+type NavbarProps = {
+  aboutMe: boolean;
+  setAboutMe: (value: boolean) => void;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ aboutMe, setAboutMe }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleScrollToHome = () => {

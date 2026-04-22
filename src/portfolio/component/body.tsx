@@ -3,15 +3,21 @@ import Image from "next/image";
 import { IoIosMail, IoIosMailUnread, IoLogoLinkedin } from "react-icons/io";
 import {
   IoCallSharp,
+  IoCodeSlashOutline,
+  IoColorPaletteOutline,
+  IoImagesOutline,
   IoLocationSharp,
   IoMailOpenOutline,
+  IoPeopleOutline,
   IoPersonCircle,
+  IoPhonePortraitOutline,
 } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiSkills } from "react-icons/gi";
 import { RiSpeakFill } from "react-icons/ri";
 import SkillCloud from "@/component/skill";
+
 
 const Body: React.FC = () => {
   const images = [
@@ -21,10 +27,25 @@ const Body: React.FC = () => {
     "/images/saya4.jpg",
   ];
 
+  const currentIdentityImages = [
+    "/images/about/profile-1.jpg",
+    "/images/about/workspace-1.jpg",
+    "/images/about/ui-preview-1.jpg",
+  ];
+
+  const transitionImages = [
+    "/images/about/architecture-1.jpg",
+    "/images/about/photoshop-1.jpg",
+    "/images/about/code-1.jpg",
+  ];
+
   const [currentImage, setCurrentImage] = useState(0);
 
   const [copied, setCopied] = useState(false);
   const [aboutMe, setAboutMe] = useState(true);
+  const [currentIdentity, setCurrentIdentity] = useState(0);
+  const [transitionIndex, setTransitionIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const email = "syafiqrazak669@gmail.com";
 
@@ -38,8 +59,8 @@ const Body: React.FC = () => {
   };
 
   const handleClick = (buttonName: string) => {
-    if (buttonName === 'aboutMe') {
-      setAboutMe(false);
+    if (buttonName === "aboutMe") {
+      setAboutMe(true);
     }
   };
 
@@ -50,6 +71,27 @@ const Body: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (isPaused || currentIdentityImages.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIdentity((prev) => (prev + 1) % currentIdentityImages.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, currentIdentityImages.length]);
+
+  useEffect(() => {
+    if (isPaused || transitionImages.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setTransitionIndex((prev) => (prev + 1) % transitionImages.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, transitionImages.length]);
+
   return (
     <div className="h-full w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
       <section
@@ -85,7 +127,11 @@ const Body: React.FC = () => {
             </div>
 
             <div className="min-w-x max-w-4xl xl:max-w-6xl text-sm text-white tracking-widest">
-              This is my personal resume and portfolio, showcasing my journey as a Fullstack Developer and UI/UX Designer. It highlights my background, technical skills, and selected projects, reflecting my passion for building modern, efficient, and user-centered digital experiences.
+              This is my personal resume and portfolio, showcasing my journey as
+              a Fullstack Developer and UI/UX Designer. It highlights my
+              background, technical skills, and selected projects, reflecting my
+              passion for building modern, efficient, and user-centered digital
+              experiences.
             </div>
           </div>
         </div>
@@ -111,10 +157,11 @@ const Body: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   aria-label={`Show image ${index + 1}`}
-                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${currentImage === index
-                    ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
-                    : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
-                    }`}
+                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${
+                    currentImage === index
+                      ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
+                      : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
+                  }`}
                 />
               ))}
             </div>
@@ -237,193 +284,281 @@ const Body: React.FC = () => {
             </div>
           </div>
         </div>
+
         <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-4">
           <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10">
-            <button onClick={() => handleClick("aboutMe")} name="aboutMe" className={`${aboutMe ? 'bg-sky-900 text-orange-400  font-semibold' : 'bg-sky-300 font-semibold'} hover:bg-sky-500 hover:text-black flex flex-row items-center justify-center py-1 px-3 rounded-full border-2 border-slate-700 gap-2`} >
+            <button
+              onClick={() => handleClick("aboutMe")}
+              name="aboutMe"
+              className={`${aboutMe ? "bg-sky-900 text-orange-400 font-semibold" : "bg-sky-300 font-semibold"} hover:bg-sky-500 hover:text-black flex flex-row items-center justify-center py-1 px-3 rounded-full border-2 border-slate-700 gap-2`}
+            >
               <IoPersonCircle className="h-5 md:h-6 w-5 md:w-6" />
-              <div className="">About Me</div>
+              <div>About Me</div>
             </button>
           </div>
-          <div className="h-full w-full flex flex-col overflow-y-auto border-2 border-slate-700 rounded-lg overflow-hidden mt-4">
-            {/* <div className="h-full w-full flex flex-col">
-              <div className="w-full text-xl font-bold text-gray-800">
-                About Me
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="text-tiny text-gray-700 tracking-tighter leading-tight">
-                  Hi, I am a passionate and versatile professional with a
-                  background in both architecture and software development. I
-                  have successfully transitioned from designing physical spaces
-                  to building modern, responsive, and scalable digital
-                  solutions. I am currently working as a Software Developer ,
-                  where I design and implement solutions based on client
-                  requirements. My role involves crafting intuitive user
-                  experiences and developing robust full-stack applications.
+
+          <div className="h-full w-full border-2 border-slate-700 rounded-lg overflow-hidden mt-4">
+            <div className="h-screen-10 sm:min-h-full w-full flex flex-col overflow-y-auto bg-[#ececec]">
+              <div className="w-full flex flex-col p-3 md:p-5 md:pt-8 gap-2 bg-[#ececec]">
+                {/* Title */}
+                <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                  <h2 className="text-[calc(5vh-5px)] font-bold tracking-wider text-slate-800">
+                    Designing Beyond the Screen
+                  </h2>
+                  <p className="mt-2 w-full leading-tight text-slate-600 text-[calc(2.8vh-5px)]">
+                    From architecture to digital systems, my journey has always
+                    been rooted in structure, usability, and how people
+                    experience what is built around them, shaping the way I
+                    approach both design and development today.
+                  </p>
                 </div>
-              </div>
-              <div className="h-full w-full flex flex-row gap-2">
-                <div className="h-full w-full flex flex-col gap-3">
-                  <div className="h-auto w-full">
-                    <div className="text-base lg:text-xl font-semibold text-gray-800">
-                      Career Journey
-                    </div>
-                    <div className=" text-gray-700">
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Software Developer</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          <div className="font-bold">
-                            Rayatech Sdn. Bhd. (Mar 2023 - Present)
-                          </div>
-                          <div className="">
-                            Designing and implementing client-based solutions
-                            with a focus on responsive UI/UX and scalable
-                            backend systems.
-                          </div>
-                        </div>
+
+                {/* Core Highlights */}
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
+                  <div className="rounded-2xl border border-slate-300 bg-white px-4 py-4 shadow-sm">
+                    <div className="w-full flex flex-row items-center justify-between">
+                      <div className=" text-[calc(2.5vh-5px)] tracking-tight font-bold text-slate-800">
+                        Design Thinking
                       </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Interior Designer</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          <div className="font-bold">
-                            Ezkay Sdn. Bhd. (Oct 2021 - Sep 2022)
-                          </div>
-                          <div className="">
-                            Designed innovative and functional interior spaces,
-                            combining aesthetics with practicality.
-                          </div>
-                        </div>
-                      </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Assistant Architect</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          <div className="font-bold">
-                            Iryas Incorporation (Jan 2021 - Oct 2021)
-                          </div>
-                          <div className="">
-                            Designed functional building spaces with
-                            practicality.
-                          </div>
-                        </div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-sky-700 border border-sky-500">
+                        <IoColorPaletteOutline className="h-[calc(4vh-5px)] w-[calc(4vh-5px)] p-1" />
                       </div>
                     </div>
+                    <p className="mt-1 text-[calc(2.2vh-5px)] leading-snug text-slate-600">
+                      Strong foundation in structure, flow, and user-centered
+                      design, focused on intuitive and clear user experiences.
+                    </p>
                   </div>
-                  <div className="h-auto w-full">
-                    <div className="text-base lg:text-xl font-semibold text-gray-800">
-                      Technical Skills
-                    </div>
-                    <div className=" text-gray-700">
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Programming</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          HTML, CSS, JavaScript, TypeScript, Tailwind, Bootstrap
-                        </div>
+
+                  <div className="rounded-2xl border border-slate-300 bg-white px-4 py-4 shadow-sm">
+                    <div className="w-full flex flex-row items-center justify-between">
+                      <div className=" text-[calc(2.5vh-5px)] tracking-tight font-bold text-slate-800">
+                        Fullstack Development
                       </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Frameworks</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">Next.js, Tailwind CSS</div>
-                      </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">UI/UX Design Tools</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          Adobe Photoshop, InDesign (Basic)
-                        </div>
-                      </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Database Management</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">MySQL</div>
-                      </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Hosting & Deployment</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">AWS for prototypes</div>
-                      </div>
-                      <div className="w-full flex flex-row gap-2">
-                        <div className="w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Additional Skills</div>
-                          <div className="">:</div>
-                        </div>
-                        <div className="w-2/3">
-                          Responsive Design for BYOD compatibility
-                        </div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-orange-600 border border-orange-400">
+                        <IoCodeSlashOutline className="h-[calc(4vh-5px)] w-[calc(4vh-5px)] p-1" />
                       </div>
                     </div>
+                    <p className="mt-1 text-[calc(2.2vh-5px)] leading-snug text-slate-600">
+                      Building practical and scalable systems with modern web
+                      technologies, focused on performance and usability.
+                    </p>
                   </div>
-                  <div className="h-auto w-full">
-                    <div className="text-base lg:text-xl font-semibold text-gray-800">
-                      Education
+
+                  <div className="rounded-2xl border border-slate-300 bg-white px-4 py-4 shadow-sm">
+                    <div className="w-full flex flex-row items-center justify-between">
+                      <div className=" text-[calc(2.5vh-5px)] tracking-tight font-bold text-slate-800">
+                        UI/UX Focus
+                      </div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 border border-emerald-500">
+                        <IoPhonePortraitOutline className="h-[calc(4vh-5px)] w-[calc(4vh-5px)] p-1" />
+                      </div>
                     </div>
-                    <div className="w-full flex flex-col text-gray-700 gap-2">
-                      <div className="w-full flex flex-col lg:flex-row lg:gap-2">
-                        <div className="w-full lg:w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">
-                            Diploma in Software Development
-                          </div>
-                          <div className="">-</div>
-                        </div>
-                        <div className="w-full lg:w-2/3">
-                          Code Institute (2020-2021): Focused on HTML, CSS,
-                          JavaScript, and Python.
-                        </div>
+                    <p className="mt-1 text-[calc(2.2vh-5px)] leading-snug text-slate-600">
+                      Turning complex workflows into clear, responsive, and
+                      usable experiences for better user interaction.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-slate-300 bg-white px-4 py-4 shadow-sm">
+                    <div className="w-full flex flex-row items-center justify-between">
+                      <div className=" text-[calc(2.5vh-5px)] tracking-tight font-bold text-slate-800">
+                        Leadership
                       </div>
-                      <div className="w-full flex flex-col lg:flex-row lg:gap-2">
-                        <div className="w-full lg:w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">
-                            Bachelor of Science in Architectural Studies
-                          </div>
-                          <div className="">-</div>
-                        </div>
-                        <div className="w-full lg:w-2/3">
-                          Limkokwing University (2016-2018): Graduated with a
-                          CGPA of 3.34.
-                        </div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-violet-700 border border-violet-500">
+                        <IoPeopleOutline className="h-[calc(4vh-5px)] w-[calc(4vh-5px)] p-1" />
                       </div>
-                      <div className="w-full flex flex-col lg:flex-row lg:gap-2">
-                        <div className="w-full lg:w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Diploma in Architecture</div>
-                          <div className="">-</div>
+                    </div>
+                    <p className="mt-1 text-[calc(2.2vh-5px)] leading-snug text-slate-600">
+                      Leading junior developers while working directly with
+                      clients and project needs.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Section 1 */}
+                <div className="flex flex-col gap-2 lg:flex-row">
+                  {/* Text */}
+                  <div className="md:w-1/3 w-full rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Present
+                    </p>
+                    <h3 className="mb-3 text-[calc(3.5vh-5px)]  font-bold text-slate-800">
+                      Current Identity
+                    </h3>
+                    <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
+                      I am a Fullstack Developer with a design driven mindset,
+                      focused on building systems that are intuitive, scalable,
+                      and practical for real users. My work combines development
+                      and UI/UX to create applications that are not only
+                      functional, but also easier to understand and use across
+                      different devices.
+                    </p>
+                  </div>
+
+                  {/* Transition Picture 1 */}
+                  <div className="md:w-2/3 w-full rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                    <div
+                      className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                    >
+                      {currentIdentityImages &&
+                      currentIdentityImages.length > 0 ? (
+                        <>
+                          {currentIdentityImages.map((img, index) => (
+                            <img
+                              key={`${img}-${index}`}
+                              src={img}
+                              alt="Current identity visual"
+                              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
+                                index === currentIdentity
+                                  ? "scale-100 opacity-100"
+                                  : "scale-105 opacity-0"
+                              }`}
+                            />
+                          ))}
+
+                          {currentIdentityImages.length > 1 && (
+                            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
+                              {currentIdentityImages.map((_, index) => (
+                                <button
+                                  key={index}
+                                  type="button"
+                                  onClick={() => setCurrentIdentity(index)}
+                                  aria-label={`Go to current identity image ${index + 1}`}
+                                  className={`h-2 rounded-full transition-all ${
+                                    currentIdentity === index
+                                      ? "w-5 bg-white"
+                                      : "w-2 bg-white/60 hover:bg-white/80"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center text-slate-500">
+                          <IoImagesOutline className="mb-3 h-9 w-9" />
+                          <p className="text-sm font-semibold">
+                            Transition Picture 1
+                          </p>
+                          <p className="mt-1 max-w-xs text-xs leading-6">
+                            Place your portrait, workspace, UI preview, or
+                            personal visual here.
+                          </p>
                         </div>
-                        <div className="w-full lg:w-2/3">
-                          Politeknik Port Dickson (2012-2015): Graduated with a
-                          CGPA of 3.01.
-                        </div>
-                      </div>
-                      <div className="w-full flex flex-col lg:flex-row lg:gap-2">
-                        <div className="w-full lg:w-1/3 flex flex-row justify-between font-bold">
-                          <div className="">Sijil Pelajaran Malaysia (SPM)</div>
-                          <div className="">-</div>
-                        </div>
-                        <div className="w-full lg:w-2/3">
-                          SMK Sultan Abdul Aziz Shah (2009-2011)
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
+
+                {/* Section 2 */}
+                <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                    Foundation
+                  </p>
+                  <h3 className="mb-3 text-[calc(3.5vh-5px)] font-bold text-slate-800">
+                    Background Before IT
+                  </h3>
+                  <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
+                    Before moving into software, my background was in
+                    architecture and design. That experience shaped how I think
+                    about structure, clarity, and how people move through an
+                    experience. It taught me that every element should serve a
+                    purpose, and that good design is not only about appearance,
+                    but also about how naturally something works for the user.
+                  </p>
+                </div>
+
+                {/* Section 3 */}
+                <div className="w-full flex flex-col lg:flex-row gap-2">
+                  {/* Transition Picture 2 */}
+                  <div className="w-full md:w-2/3 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                    <div
+                      className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                    >
+                      {transitionImages && transitionImages.length > 0 ? (
+                        <>
+                          {transitionImages.map((img, index) => (
+                            <img
+                              key={`${img}-${index}`}
+                              src={img}
+                              alt="Transition visual"
+                              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
+                                index === transitionIndex
+                                  ? "scale-100 opacity-100"
+                                  : "scale-105 opacity-0"
+                              }`}
+                            />
+                          ))}
+
+                          {transitionImages.length > 1 && (
+                            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
+                              {transitionImages.map((_, index) => (
+                                <button
+                                  key={index}
+                                  type="button"
+                                  onClick={() => setTransitionIndex(index)}
+                                  aria-label={`Go to transition image ${index + 1}`}
+                                  className={`h-2 rounded-full transition-all ${
+                                    transitionIndex === index
+                                      ? "w-5 bg-white"
+                                      : "w-2 bg-white/60 hover:bg-white/80"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center text-slate-500">
+                          <IoImagesOutline className="mb-3 h-9 w-9" />
+                          <p className="text-sm font-semibold">
+                            Transition Picture 2
+                          </p>
+                          <p className="mt-1 max-w-xs text-xs leading-6">
+                            Place your architecture, Photoshop, coding, or
+                            project transition visual here.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="w-full md:w-1/3 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Transition
+                    </p>
+                    <h3 className="mb-3 text-[calc(3.5vh-5px)] font-bold text-slate-800">
+                      From Design Thinking to Digital Systems
+                    </h3>
+                    <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
+                      Over time, that same design thinking naturally evolved
+                      into digital work. I began applying the principles of
+                      structure and user flow into interfaces, system design,
+                      and fullstack development. Today, I work on real-world
+                      systems including healthcare platforms, national-scale
+                      water management solutions, and my own project, EzDrive.
+                      My background across architecture, visual design, and
+                      software development helps me approach problems from
+                      technical, functional, and human perspectives.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Quote */}
+                <div className="rounded-2xl border border-slate-300 bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-6 text-center shadow-sm">
+                  <p className="text-[calc(4vh-6px)] font-semibold italic leading-8 tracking-wide text-white">
+                    “Users shouldn’t have to think, the Design should already
+                    understand them.”
+                  </p>
+                </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
