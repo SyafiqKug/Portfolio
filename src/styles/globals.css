@@ -38,3 +38,40 @@
 .custom-scrollbar::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+
+@keyframes zoomSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.7);
+  }
+}
+
+.animate-zoomSlow {
+  animation: zoomSlow 10s ease-in-out forwards;
+}
+
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Scroll thumb */
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5); /* slate-500 */
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 41, 59, 0.8); /* darker slate */
+}

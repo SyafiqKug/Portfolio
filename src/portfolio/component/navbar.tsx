@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ aboutMe, setAboutMe }) => {
       <div className="flex flex-row justify-end gap-2">
         <Button
           onClick={handleScrollToAbout}
-          className={`bg-transparent text-[clamp(1.5rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-bold ${
+          className={`bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-bold ${
             isClicked
               ? "text-orange-400 hover:text-orange-600 focus:text-orange-400"
               : "text-orange-700 hover:text-orange-600 focus:text-orange-400"

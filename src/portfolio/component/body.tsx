@@ -18,13 +18,13 @@ import { GiSkills } from "react-icons/gi";
 import { RiSpeakFill } from "react-icons/ri";
 import SkillCloud from "@/component/skill";
 
-
 const Body: React.FC = () => {
   const images = [
     "/images/saya1.jpg",
     "/images/saya2.jpg",
     "/images/saya3.jpg",
     "/images/saya4.jpg",
+    "/images/saya5.jpg",
   ];
 
   const currentIdentityImages = [
@@ -34,9 +34,25 @@ const Body: React.FC = () => {
   ];
 
   const transitionImages = [
-    "/images/about/architecture-1.jpg",
-    "/images/about/photoshop-1.jpg",
-    "/images/about/code-1.jpg",
+    "/archimage/archimage1.jpg",
+    "/archimage/archimage2.jpg",
+    "/archimage/archimage3.jpg",
+    "/archimage/archimage4.jpg",
+    "/archimage/archimage5.jpg",
+    "/archimage/archimage6.jpg",
+    "/archimage/archimage7.jpg",
+    "/archimage/archimage8.1.jpg",
+    "/archimage/archimage8.jpg",
+    "/archimage/archimage9.jpg",
+    "/archimage/archimage10.jpg",
+    "/archimage/archimage11.jpg",
+    "/archimage/archimage12.jpg",
+    "/archimage/archimage13.jpg",
+    "/archimage/archimage14.jpg",
+    "/archimage/archimage15.jpg",
+    "/archimage/archimage16.jpg",
+    "/archimage/archimage17.jpg",
+    "/archimage/archimage18.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -87,7 +103,7 @@ const Body: React.FC = () => {
 
     const interval = setInterval(() => {
       setTransitionIndex((prev) => (prev + 1) % transitionImages.length);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isPaused, transitionImages.length]);
@@ -96,7 +112,7 @@ const Body: React.FC = () => {
     <div className="h-full w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
       <section
         id="home"
-        className="relative snap-center h-full min-h-full w-full bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200"
+        className="relative snap-center h-full min-h-full w-screen bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200"
       >
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
@@ -299,7 +315,7 @@ const Body: React.FC = () => {
 
           <div className="h-full w-full border-2 border-slate-700 rounded-lg overflow-hidden mt-4">
             <div className="h-screen-10 sm:min-h-full w-full flex flex-col overflow-y-auto bg-[#ececec]">
-              <div className="w-full flex flex-col p-3 md:p-5 md:pt-8 gap-2 bg-[#ececec]">
+              <div className="w-full flex flex-col p-1 md:p-2 md:pt-6 gap-2 bg-[#ececec]">
                 {/* Title */}
                 <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
                   <h2 className="text-[calc(5vh-5px)] font-bold tracking-wider text-slate-800">
@@ -379,7 +395,7 @@ const Body: React.FC = () => {
                 {/* Section 1 */}
                 <div className="flex flex-col gap-2 lg:flex-row">
                   {/* Text */}
-                  <div className="md:w-1/3 w-full rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                  <div className="w-full sm:w-1/3 md:w-1/4 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Present
                     </p>
@@ -397,7 +413,7 @@ const Body: React.FC = () => {
                   </div>
 
                   {/* Transition Picture 1 */}
-                  <div className="md:w-2/3 w-full rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                  <div className="w-full sm:w-2/3 md:w-3/4 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
                     <div
                       className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
                       onMouseEnter={() => setIsPaused(true)}
@@ -463,7 +479,7 @@ const Body: React.FC = () => {
                   </h3>
                   <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
                     Before moving into software, my background was in
-                    architecture and design. That experience shaped how I think
+                    architecture, Interior and design. That experience shaped how I think
                     about structure, clarity, and how people move through an
                     experience. It taught me that every element should serve a
                     purpose, and that good design is not only about appearance,
@@ -474,7 +490,7 @@ const Body: React.FC = () => {
                 {/* Section 3 */}
                 <div className="w-full flex flex-col lg:flex-row gap-2">
                   {/* Transition Picture 2 */}
-                  <div className="w-full md:w-2/3 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                  <div className="w-full sm:w-2/3 md:w-3/4 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
                     <div
                       className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
                       onMouseEnter={() => setIsPaused(true)}
@@ -487,10 +503,15 @@ const Body: React.FC = () => {
                               key={`${img}-${index}`}
                               src={img}
                               alt="Transition visual"
-                              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
+                              // className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
+                              //   index === transitionIndex
+                              //     ? "scale-100 opacity-100"
+                              //     : "scale-105 opacity-0"
+                              // }`}
+                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                                 index === transitionIndex
-                                  ? "scale-100 opacity-100"
-                                  : "scale-105 opacity-0"
+                                  ? "opacity-100 animate-zoomSlow"
+                                  : "opacity-0"
                               }`}
                             />
                           ))}
@@ -529,7 +550,7 @@ const Body: React.FC = () => {
                   </div>
 
                   {/* Text */}
-                  <div className="w-full md:w-1/3 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                  <div className="w-full sm:w-1/3 md:w-1/4 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Transition
                     </p>
@@ -540,8 +561,8 @@ const Body: React.FC = () => {
                       Over time, that same design thinking naturally evolved
                       into digital work. I began applying the principles of
                       structure and user flow into interfaces, system design,
-                      and fullstack development. Today, I work on real-world
-                      systems including healthcare platforms, national-scale
+                      and fullstack development. Today, I work on real world
+                      systems including healthcare platforms, national scale
                       water management solutions, and my own project, EzDrive.
                       My background across architecture, visual design, and
                       software development helps me approach problems from
