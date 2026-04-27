@@ -28,31 +28,40 @@ const Body: React.FC = () => {
   ];
 
   const currentIdentityImages = [
-    "/images/about/profile-1.jpg",
-    "/images/about/workspace-1.jpg",
-    "/images/about/ui-preview-1.jpg",
+    {
+      src: "/images/emr.png",
+      title: "EMR.ai – Healthcare System",
+    },
+    {
+      src: "/images/ezdrive.png",
+      title: "EzDrive – Driving School System",
+    },
+    {
+      src: "/images/nawabs.png",
+      title: "NAWABS – Management System",
+    },
   ];
 
   const transitionImages = [
-    "/archimage/archimage1.jpg",
-    "/archimage/archimage2.jpg",
-    "/archimage/archimage3.jpg",
-    "/archimage/archimage4.jpg",
-    "/archimage/archimage5.jpg",
-    "/archimage/archimage6.jpg",
-    "/archimage/archimage7.jpg",
-    "/archimage/archimage8.1.jpg",
-    "/archimage/archimage8.jpg",
-    "/archimage/archimage9.jpg",
-    "/archimage/archimage10.jpg",
-    "/archimage/archimage11.jpg",
-    "/archimage/archimage12.jpg",
-    "/archimage/archimage13.jpg",
-    "/archimage/archimage14.jpg",
-    "/archimage/archimage15.jpg",
-    "/archimage/archimage16.jpg",
-    "/archimage/archimage17.jpg",
-    "/archimage/archimage18.jpg",
+    { src: "/archimage/archimage1.jpg", title: "" },
+    { src: "/archimage/archimage2.jpg", title: "" },
+    { src: "/archimage/archimage3.jpg", title: "" },
+    { src: "/archimage/archimage4.jpg", title: "" },
+    { src: "/archimage/archimage5.jpg", title: "" },
+    { src: "/archimage/archimage6.jpg", title: "" },
+    { src: "/archimage/archimage7.jpg", title: "" },
+    { src: "/archimage/archimage8.1.jpg", title: "" },
+    { src: "/archimage/archimage8.jpg", title: "" },
+    { src: "/archimage/archimage9.jpg", title: "" },
+    { src: "/archimage/archimage10.jpg", title: "" },
+    { src: "/archimage/archimage11.jpg", title: "" },
+    { src: "/archimage/archimage12.jpg", title: "" },
+    { src: "/archimage/archimage13.jpg", title: "" },
+    { src: "/archimage/archimage14.jpg", title: "" },
+    { src: "/archimage/archimage15.jpg", title: "" },
+    { src: "/archimage/archimage16.jpg", title: "" },
+    { src: "/archimage/archimage17.jpg", title: "" },
+    { src: "/archimage/archimage18.jpg", title: "" },
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -93,7 +102,7 @@ const Body: React.FC = () => {
 
     const interval = setInterval(() => {
       setCurrentIdentity((prev) => (prev + 1) % currentIdentityImages.length);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isPaused, currentIdentityImages.length]);
@@ -302,7 +311,7 @@ const Body: React.FC = () => {
         </div>
 
         <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-4">
-          <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10">
+          <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10 z-20 ">
             <button
               onClick={() => handleClick("aboutMe")}
               name="aboutMe"
@@ -405,10 +414,15 @@ const Body: React.FC = () => {
                     <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
                       I am a Fullstack Developer with a design driven mindset,
                       focused on building systems that are intuitive, scalable,
-                      and practical for real users. My work combines development
-                      and UI/UX to create applications that are not only
-                      functional, but also easier to understand and use across
-                      different devices.
+                      and practical for real users. I combine development with
+                      UI/UX thinking to ensure that every solution is not only
+                      functional, but also clear, responsive, and easy to use
+                      across different devices. With experience in real world
+                      systems such as healthcare platforms and management
+                      systems, I focus on creating applications that balance
+                      technical performance with user experience. My goal is to
+                      deliver solutions that are structured, reliable, and
+                      genuinely useful in everyday use.
                     </p>
                   </div>
 
@@ -422,29 +436,38 @@ const Body: React.FC = () => {
                       {currentIdentityImages &&
                       currentIdentityImages.length > 0 ? (
                         <>
-                          {currentIdentityImages.map((img, index) => (
+                          {currentIdentityImages.map((item, index) => (
                             <img
-                              key={`${img}-${index}`}
-                              src={img}
-                              alt="Current identity visual"
-                              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                                index === currentIdentity
-                                  ? "scale-100 opacity-100"
-                                  : "scale-105 opacity-0"
+                              key={`${item.src}-${index}`}
+                              src={item.src}
+                              alt={item.title}
+                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                                index === transitionIndex
+                                  ? "opacity-100 animate-zoomSlow"
+                                  : "opacity-0"
                               }`}
                             />
                           ))}
 
+                          <div className="absolute bottom-4 right-4 z-10 max-w-[75%] rounded-xl bg-black/50 px-4 py-2 text-right backdrop-blur-sm">
+                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">
+                              Project
+                            </p>
+                            <h4 className="text-sm font-bold text-white md:text-base">
+                              {currentIdentityImages[transitionIndex]?.title}
+                            </h4>
+                          </div>
+
                           {currentIdentityImages.length > 1 && (
-                            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
+                            <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
                               {currentIdentityImages.map((_, index) => (
                                 <button
                                   key={index}
                                   type="button"
-                                  onClick={() => setCurrentIdentity(index)}
-                                  aria-label={`Go to current identity image ${index + 1}`}
+                                  onClick={() => setTransitionIndex(index)}
+                                  aria-label={`Go to transition image ${index + 1}`}
                                   className={`h-2 rounded-full transition-all ${
-                                    currentIdentity === index
+                                    transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
                                   }`}
@@ -470,7 +493,7 @@ const Body: React.FC = () => {
                 </div>
 
                 {/* Section 2 */}
-                <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                {/* <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                     Foundation
                   </p>
@@ -479,18 +502,24 @@ const Body: React.FC = () => {
                   </h3>
                   <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
                     Before moving into software, my background was in
-                    architecture, Interior and design. That experience shaped how I think
-                    about structure, clarity, and how people move through an
-                    experience. It taught me that every element should serve a
-                    purpose, and that good design is not only about appearance,
-                    but also about how naturally something works for the user.
+                    architecture, interior, and design. That experience shaped
+                    how I think about structure, clarity, and how people move
+                    through an experience. It taught me that every element
+                    should serve a purpose, and that good design is not only
+                    about appearance, but also about how naturally something
+                    works for the user. Today, I carry the same mindset into
+                    software development, focusing on building systems that are
+                    structured, intuitive, and meaningful for real users. I pay
+                    attention to how users interact with each part of a system,
+                    ensuring the experience feels clear, consistent, and easy to
+                    navigate across different platforms.
                   </p>
-                </div>
+                </div> */}
 
-                {/* Section 3 */}
+                {/* Section 2 */}
                 <div className="w-full flex flex-col lg:flex-row gap-2">
                   {/* Transition Picture 2 */}
-                  <div className="w-full sm:w-2/3 md:w-3/4 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                  <div className="w-full sm:w-2/3 md:w-1/2 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-smz-0">
                     <div
                       className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
                       onMouseEnter={() => setIsPaused(true)}
@@ -498,16 +527,11 @@ const Body: React.FC = () => {
                     >
                       {transitionImages && transitionImages.length > 0 ? (
                         <>
-                          {transitionImages.map((img, index) => (
+                          {transitionImages.map((item, index) => (
                             <img
-                              key={`${img}-${index}`}
-                              src={img}
-                              alt="Transition visual"
-                              // className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                              //   index === transitionIndex
-                              //     ? "scale-100 opacity-100"
-                              //     : "scale-105 opacity-0"
-                              // }`}
+                              key={`${item.src}-${index}`}
+                              src={item.src}
+                              alt={item.title}
                               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                                 index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
@@ -516,8 +540,17 @@ const Body: React.FC = () => {
                             />
                           ))}
 
+                          <div className="absolute bottom-4 right-4 z-10 max-w-[75%] rounded-xl bg-black/50 px-4 py-2 text-right backdrop-blur-sm">
+                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">
+                              Project
+                            </p>
+                            <h4 className="text-sm font-bold text-white md:text-base">
+                              {transitionImages[transitionIndex]?.title}
+                            </h4>
+                          </div>
+
                           {transitionImages.length > 1 && (
-                            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
+                            <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
                               {transitionImages.map((_, index) => (
                                 <button
                                   key={index}
@@ -550,24 +583,118 @@ const Body: React.FC = () => {
                   </div>
 
                   {/* Text */}
+                  <div className="w-full sm:w-1/3 md:w-1/2 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Foundation
+                    </p>
+                    <h3 className="mb-3 text-[calc(3.5vh-5px)] font-bold text-slate-800">
+                      Background Before IT
+                    </h3>
+                    <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
+                      Before moving into software, my background was in
+                      architecture, interior, and design. That experience shaped
+                      how I think about structure, clarity, and how people move
+                      through an experience. It taught me that every element
+                      should serve a purpose, and that good design is not only
+                      about appearance, but also about how naturally something
+                      works for the user. Today, I carry the same mindset into
+                      software development, focusing on building systems that
+                      are structured, intuitive, and meaningful for real users.
+                      I pay attention to how users interact with each part of a
+                      system, ensuring the experience feels clear, consistent,
+                      and easy to navigate across different platforms.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2 lg:flex-row">
+                  {/* Text */}
                   <div className="w-full sm:w-1/3 md:w-1/4 rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Transition
                     </p>
-                    <h3 className="mb-3 text-[calc(3.5vh-5px)] font-bold text-slate-800">
+                    <h3 className="mb-3 text-[calc(3.5vh-5px)]  font-bold text-slate-800">
                       From Design Thinking to Digital Systems
                     </h3>
                     <p className="text-[calc(2.5vh-5px)] leading-snug text-slate-700">
-                      Over time, that same design thinking naturally evolved
-                      into digital work. I began applying the principles of
+                      Over time, my design thinking naturally evolved into
+                      digital work, where I began applying principles of
                       structure and user flow into interfaces, system design,
-                      and fullstack development. Today, I work on real world
-                      systems including healthcare platforms, national scale
-                      water management solutions, and my own project, EzDrive.
-                      My background across architecture, visual design, and
-                      software development helps me approach problems from
-                      technical, functional, and human perspectives.
+                      and fullstack development. I focus on creating solutions
+                      that are not only functional, but also clear and easy for
+                      users to navigate. Today, I work on real world systems
+                      including healthcare platforms, national scale water
+                      management solutions, and my own project, EzDrive. My
+                      background in architecture, visual design, and software
+                      development allows me to approach problems from both
+                      technical and user perspectives, helping me build systems
+                      that are structured, practical, and user-focused
                     </p>
+                  </div>
+
+                  {/* Transition Picture 1 */}
+                  <div className="w-full sm:w-2/3 md:w-3/4 rounded-2xl border border-slate-300 bg-white overflow-hidden shadow-sm">
+                    <div
+                      className="relative w-full min-h-full overflow-hidden rounded-xl bg-slate-100"
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                    >
+                      {currentIdentityImages &&
+                      currentIdentityImages.length > 0 ? (
+                        <>
+                          {currentIdentityImages.map((item, index) => (
+                            <img
+                              key={`${item.src}-${index}`}
+                              src={item.src}
+                              alt={item.title}
+                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                                index === transitionIndex
+                                  ? "opacity-100 animate-zoomSlow"
+                                  : "opacity-0"
+                              }`}
+                            />
+                          ))}
+
+                          <div className="absolute bottom-4 right-4 z-10 max-w-[75%] rounded-xl bg-black/50 px-4 py-2 text-right backdrop-blur-sm">
+                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">
+                              Project
+                            </p>
+                            <h4 className="text-sm font-bold text-white md:text-base">
+                              {currentIdentityImages[transitionIndex]?.title}
+                            </h4>
+                          </div>
+
+                          {currentIdentityImages.length > 1 && (
+                            <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
+                              {currentIdentityImages.map((_, index) => (
+                                <button
+                                  key={index}
+                                  type="button"
+                                  onClick={() => setTransitionIndex(index)}
+                                  aria-label={`Go to transition image ${index + 1}`}
+                                  className={`h-2 rounded-full transition-all ${
+                                    transitionIndex === index
+                                      ? "w-5 bg-white"
+                                      : "w-2 bg-white/60 hover:bg-white/80"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center text-slate-500">
+                          <IoImagesOutline className="mb-3 h-9 w-9" />
+                          <p className="text-sm font-semibold">
+                            Transition Picture 1
+                          </p>
+                          <p className="mt-1 max-w-xs text-xs leading-6">
+                            Place your portrait, workspace, UI preview, or
+                            personal visual here.
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -576,6 +703,14 @@ const Body: React.FC = () => {
                   <p className="text-[calc(4vh-6px)] font-semibold italic leading-8 tracking-wide text-white">
                     “Users shouldn’t have to think, the Design should already
                     understand them.”
+                  </p>
+                  <p className="text-[calc(2vh-3px)] text-slate-400 mt-1 leading-tight">
+                    A good design removes friction by anticipating user needs,
+                    allowing them to interact with the system effortlessly
+                    without stopping to think. It guides actions naturally
+                    through clear structure, visual cues, and intuitive flow,
+                    creating an experience that feels smooth, familiar, and easy
+                    to use.
                   </p>
                 </div>
               </div>
