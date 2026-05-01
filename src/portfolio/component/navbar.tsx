@@ -67,11 +67,10 @@ const Navbar: React.FC<NavbarProps> = ({ aboutMe, setAboutMe }) => {
 
   return (
     <div
-      className={`${
-        isClickedAboutMe
+      className={`${isClickedAboutMe
           ? "relative w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-gray-800 py-2 px-5" // Solid background and relative positioning
-          : "absolute w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-black bg-opacity-70 py-2 px-5" // Semi-transparent background
-      } w-full py-2 px-5 transition-all duration-300 z-50`}
+          : "absolute w-full flex flex-row justify-between items-center text-white bg-gradient-to-b from-black from-20% to-transparent py-2 px-5" // Semi-transparent background
+        } w-full py-2 px-5 transition-all duration-300 z-50`}
     >
       <Button
         onClick={handleScrollToHome}
@@ -82,33 +81,33 @@ const Navbar: React.FC<NavbarProps> = ({ aboutMe, setAboutMe }) => {
       <div className="flex flex-row justify-end gap-2">
         <Button
           onClick={handleScrollToAbout}
-          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${
-            isClickedAboutMe
+          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${isClickedAboutMe
               ? "text-orange-400 hover:text-orange-600 focus:text-orange-400 font-bold"
               : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
-          }`}
+            }`}
         >
           <div className="">About Me</div>
-          <div className="">
+          {/* <div className="">
             <IoPersonCircle className="h-[clamp(1.6rem,1vw,1rem)] w-[clamp(1.6rem,1vw,1rem)]" />
-          </div>
+          </div> */}
         </Button>
         <Button
           onClick={handleToDownloadResume}
-          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${
-            isClickedResume
+          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${isClickedResume
               ? "text-orange-400 hover:text-orange-600 focus:text-orange-400 font-bold"
               : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
-          }`}
+            }`}
         >
-          <div>Resume</div>
-          <div>
-            <MdDownloadForOffline
-              className={`h-[clamp(1.6rem,1vw,1rem)] w-[clamp(1.6rem,1vw,1rem)] transition-all duration-300 ${
-                isClickedResume ? "animate-bounce text-orange-400" : ""
-              }`}
-            />
+          <div className={` transition-all duration-300 ${isClickedResume ? "animate-bounce text-orange-400" : ""
+            }`}>
+            Resume
           </div>
+          {/* <div>
+            <MdDownloadForOffline
+              className={`h-[clamp(1.6rem,1vw,1rem)] w-[clamp(1.6rem,1vw,1rem)] transition-all duration-300 ${isClickedResume ? "animate-bounce text-orange-400" : ""
+                }`}
+            />
+          </div> */}
         </Button>
       </div>
     </div>
