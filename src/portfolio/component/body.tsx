@@ -629,7 +629,7 @@ const Body: React.FC = () => {
                       onMouseEnter={() => setIsPaused(true)}
                       onMouseLeave={() => setIsPaused(false)}
                     >
-                      {currentIdentityImages &&
+                      {currentIdentityImages && 
                       currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
@@ -693,7 +693,7 @@ const Body: React.FC = () => {
                 {/* Quote */}
                 <div className="rounded-2xl border border-slate-300 bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-6 text-center shadow-sm">
                   <p className="text-[calc(4vh-6px)] font-semibold italic leading-8 tracking-wide text-white">
-                    “Users shouldn’t have to think, the Design should already
+                    “Users shouldn&apos;t have to think, the Design should already
                     understand them.”
                   </p>
                   <p className="text-[calc(2vh-3px)] text-slate-400 mt-1 leading-tight">
