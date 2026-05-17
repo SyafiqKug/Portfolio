@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { IoIosMail, IoIosMailUnread, IoLogoLinkedin } from "react-icons/io";
+import { IoLogoLinkedin } from "react-icons/io";
 import {
-  IoCallSharp,
   IoCodeSlashOutline,
   IoColorPaletteOutline,
   IoImagesOutline,
@@ -12,9 +11,7 @@ import {
   IoPersonCircle,
   IoPhonePortraitOutline,
 } from "react-icons/io5";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { GiSkills } from "react-icons/gi";
+import { FaGithub } from "react-icons/fa";
 import { RiSpeakFill } from "react-icons/ri";
 import SkillCloud from "@/component/skill";
 
@@ -68,7 +65,6 @@ const Body: React.FC = () => {
 
   const [copied, setCopied] = useState(false);
   const [aboutMe, setAboutMe] = useState(true);
-  const [currentIdentity, setCurrentIdentity] = useState(0);
   const [transitionIndex, setTransitionIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -92,20 +88,10 @@ const Body: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 9000); // change every 9 seconds
+    }, 9000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (isPaused || currentIdentityImages.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setCurrentIdentity((prev) => (prev + 1) % currentIdentityImages.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPaused, currentIdentityImages.length]);
+  }, [images.length]);
 
   useEffect(() => {
     if (isPaused || transitionImages.length <= 1) return;
@@ -134,7 +120,7 @@ const Body: React.FC = () => {
             </div>
 
             <div className="text-xl md:text-4xl font-bold leading-none">
-              I'm
+              I&apos;m
             </div>
 
             <div className="w-full md:w-3/5 flex items-baseline gap-2 font-extrabold tracking-tighter md:tracking-tighter leading-none text-left">
@@ -437,11 +423,13 @@ const Body: React.FC = () => {
                       currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
-                            <img
+                            <Image
                               key={`${item.src}-${index}`}
                               src={item.src}
                               alt={item.title}
-                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                              fill
+                              sizes="100vw"
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
                                 index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
@@ -528,11 +516,13 @@ const Body: React.FC = () => {
                       {transitionImages && transitionImages.length > 0 ? (
                         <>
                           {transitionImages.map((item, index) => (
-                            <img
+                            <Image
                               key={`${item.src}-${index}`}
                               src={item.src}
                               alt={item.title}
-                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                              fill
+                              sizes="100vw"
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
                                 index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
@@ -643,11 +633,13 @@ const Body: React.FC = () => {
                       currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
-                            <img
+                            <Image
                               key={`${item.src}-${index}`}
                               src={item.src}
                               alt={item.title}
-                              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                              fill
+                              sizes="100vw"
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
                                 index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
