@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./button";
+import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isClickedAboutMe, setIsClickedAboutMe] = useState(false);
   const [isClickedResume, setIsClickedResume] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScrollToHome = () => {
     const homeSection = document.getElementById("home");
+    setIsMobileMenuOpen(false);
 
     if (homeSection) {
       homeSection.scrollIntoView({ behavior: "smooth" });
@@ -16,6 +19,7 @@ const Navbar: React.FC = () => {
 
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById("about");
+    setIsMobileMenuOpen(false);
 
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
@@ -25,6 +29,7 @@ const Navbar: React.FC = () => {
 
   const handleToDownloadResume = () => {
     setIsClickedResume(true);
+    setIsMobileMenuOpen(false);
 
     const link = document.createElement("a");
     link.href = "/resume/Muhammad%20Syafiq%20Latest%20Resume%202026%20(C).pdf";
@@ -47,7 +52,7 @@ const Navbar: React.FC = () => {
           setIsClickedAboutMe(entry.isIntersecting);
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (aboutSection) {
@@ -65,46 +70,83 @@ const Navbar: React.FC = () => {
     <div
       className={`${
         isClickedAboutMe
-          ? "relative w-full shadow-gray-700 shadow-md flex flex-row justify-between items-center text-white bg-gray-800 py-2 px-5"
-          : "absolute w-full flex flex-row justify-between items-center text-white bg-gradient-to-b from-black from-20% to-transparent py-2 px-5"
-      } w-full py-2 px-5 transition-all duration-300 z-50`}
+          ? "fixed bg-gray-800 shadow-md shadow-gray-700"
+          : "absolute bg-gradient-to-b from-black from-20% to-transparent"
+      } top-0 left-0 z-50 w-full transition-all duration-300`}
     >
-      <Button
-        onClick={handleScrollToHome}
-        className="text-base lg:text-xl tracking-wider font-medium bg-transparent hover:bg-transparent text-white focus:bg-transparent hover:text-white focus:text-white"
-      >
-        Syafiq RAez
-      </Button>
-
-      <div className="flex flex-row justify-end gap-2">
+      <div className="flex w-full items-center justify-between px-6 py-3 sm:px-6 lg:px-10">
+        {/* Logo / Name */}
         <Button
-          onClick={handleScrollToAbout}
-          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${
-            isClickedAboutMe
-              ? "text-orange-400 hover:text-orange-600 focus:text-orange-400 font-bold"
-              : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
-          }`}
+          onClick={handleScrollToHome}
+          className="bg-transparent p-0 text-left font-medium tracking-wider text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white"
         >
-          <div>About Me</div>
+          <span className="whitespace-nowrap text-lg sm:text-xl xl:text-3xl">
+            Syafiq RAez
+          </span>
         </Button>
 
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-8 md:flex lg:gap-12">
+          <Button
+            onClick={handleScrollToAbout}
+            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-xl ${
+              isClickedAboutMe
+                ? "font-bold text-orange-400 hover:text-orange-600 focus:text-orange-400"
+                : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
+            }`}
+          >
+            About Me
+          </Button>
+
+          <Button
+            onClick={handleToDownloadResume}
+            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-xl ${
+              isClickedResume
+                ? "font-bold text-orange-400 hover:text-orange-600 focus:text-orange-400"
+                : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
+            }`}
+          >
+            <span
+              className={`transition-all duration-300 ${
+                isClickedResume ? "animate-bounce text-orange-400" : ""
+              }`}
+            >
+              Resume
+            </span>
+          </Button>
+        </div>
+
+        {/* Mobile Burger Button */}
         <Button
-          onClick={handleToDownloadResume}
-          className={`flex flex-row gap-1 bg-transparent text-[clamp(1.2rem,1vw,1.5rem)] focus:bg-transparent hover:bg-transparent font-medium ${
-            isClickedResume
-              ? "text-orange-400 hover:text-orange-600 focus:text-orange-400 font-bold"
-              : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
-          }`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="bg-transparent p-0 text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white md:hidden"
         >
-          <div
-            className={`transition-all duration-300 ${
-              isClickedResume ? "animate-bounce text-orange-400" : ""
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </Button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div className="flex flex-col gap-4 bg-gray-900/95 px-4 pb-5 pt-2 backdrop-blur-md md:hidden">
+          <Button
+            onClick={handleScrollToAbout}
+            className={`justify-start bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent ${
+              isClickedAboutMe ? "font-bold text-orange-400" : "text-orange-500"
+            }`}
+          >
+            About Me
+          </Button>
+
+          <Button
+            onClick={handleToDownloadResume}
+            className={`justify-start bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent ${
+              isClickedResume ? "font-bold text-orange-400" : "text-orange-500"
             }`}
           >
             Resume
-          </div>
-        </Button>
-      </div>
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

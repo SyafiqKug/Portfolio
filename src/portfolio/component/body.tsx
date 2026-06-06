@@ -107,37 +107,39 @@ const Body: React.FC = () => {
     <div className="h-full w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
       <section
         id="home"
-        className="relative snap-center h-full min-h-full w-screen bg-hero bg-no-repeat bg-cover bg-[position:90%_center] md:bg-center text-orange-200"
+        className="relative snap-center min-h-screen w-full overflow-hidden bg-hero bg-cover bg-[position:70%_center] bg-no-repeat text-orange-200 sm:bg-[position:80%_center] md:bg-center"
       >
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/65 md:bg-black/60"></div>
 
         {/* Content */}
-        <div className="relative z-10 h-full w-full flex flex-col justify-end p-5 md:p-10 lg:pb-40 xl:pb-24">
-          <div className="h-full flex flex-col justify-end bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 text-transparent bg-clip-text">
-            <div className="text-2xl xl:text-5xl font-semibold leading-none">
+        <div className="relative z-10 flex min-h-screen w-full flex-col justify-end px-4 pb-10 pt-24 sm:px-6 md:px-10 lg:pb-40 xl:pb-24">
+          <div className="flex w-full max-w-6xl flex-col justify-end bg-gradient-to-r from-amber-600 via-amber-300 to-amber-100 bg-clip-text text-transparent">
+            <div className="text-2xl font-semibold leading-none sm:text-3xl xl:text-5xl">
               Hello!
             </div>
 
-            <div className="text-xl md:text-4xl font-bold leading-none">
+            <div className="text-xl font-bold leading-none sm:text-2xl md:text-4xl">
               I&apos;m
             </div>
 
-            <div className="w-full md:w-3/5 flex items-baseline gap-2 font-extrabold tracking-tighter md:tracking-tighter leading-none text-left">
-              <div className="flex items-baseline font-extrabold tracking-tighter leading-none">
-                <div className="text-9xl md:text-[clamp(3rem,35vw,20rem)] lg:text-[clamp(3rem,40vw,24rem)] leading-none">
+            <div className="mt-2 flex w-fit max-w-full flex-col font-extrabold tracking-tighter text-left leading-none">
+              <div className="flex items-baseline leading-none tracking-wider">
+                <div className="text-[clamp(5.2rem,36vw,9rem)] leading-none sm:text-[clamp(6rem,18vw,14rem)] md:text-[clamp(7rem,16vw,18rem)] lg:text-[clamp(8rem,15vw,22rem)]">
                   S
                 </div>
-                <div className="text-8xl md:text-[clamp(3rem,25vw,8rem)] lg:text-[clamp(3rem,30vw,12rem)] leading-none tracking-tighter">
+
+                <div className="text-[clamp(4.2rem,22vw,7rem)] leading-none tracking-normal sm:text-[clamp(5rem,13vw,9rem)] md:text-[clamp(6rem,10vw,11rem)] lg:text-[clamp(7rem,9vw,13rem)]">
                   yafiq
                 </div>
               </div>
-              <div className="text-4xl md:text-[clamp(1rem,10vw,3rem)] font-extrabold leading-none">
+
+              <div className="mt-[-0.1rem] flex w-full justify-end text-[clamp(2rem,10vw,3.5rem)] font-extrabold leading-none sm:mt-[-1rem] sm:text-[clamp(2rem,5vw,4rem)] md:text-[clamp(2rem,4vw,4.5rem)]">
                 RAez
               </div>
             </div>
 
-            <div className="min-w-x max-w-4xl xl:max-w-6xl text-sm text-white tracking-widest">
+            <div className="mt-4 max-w-[95%] text-base font-semibold leading-tight tracking-wider text-white sm:max-w-2xl sm:text-sm md:max-w-4xl md:text-base md:tracking-wider xl:max-w-6xl">
               This is my personal resume and portfolio, showcasing my journey as
               a Fullstack Developer and UI/UX Designer. It highlights my
               background, technical skills, and selected projects, reflecting my
@@ -629,7 +631,7 @@ const Body: React.FC = () => {
                       onMouseEnter={() => setIsPaused(true)}
                       onMouseLeave={() => setIsPaused(false)}
                     >
-                      {currentIdentityImages && 
+                      {currentIdentityImages &&
                       currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
@@ -693,8 +695,8 @@ const Body: React.FC = () => {
                 {/* Quote */}
                 <div className="rounded-2xl border border-slate-300 bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-6 text-center shadow-sm">
                   <p className="text-[calc(4vh-6px)] font-semibold italic leading-8 tracking-wide text-white">
-                    “Users shouldn&apos;t have to think, the Design should already
-                    understand them.”
+                    “Users shouldn&apos;t have to think, the Design should
+                    already understand them.”
                   </p>
                   <p className="text-[calc(2vh-3px)] text-slate-400 mt-1 leading-tight">
                     A good design removes friction by anticipating user needs,
