@@ -151,9 +151,9 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700 pt-14"
+        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700"
       >
-        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5">
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20 md:pt-24">
           {/* Picture area */}
           <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
             <Image
@@ -161,7 +161,7 @@ const Body: React.FC = () => {
               width={400}
               height={400}
               alt="Profile"
-              className="h-[clamp(3rem,20vw,6rem)] w-[clamp(3rem,20vw,6rem)] md:h-[clamp(5rem,20vw,10rem)] md:w-[clamp(5rem,20vw,10rem)] xl:h-[clamp(5rem,20vw,13rem)] xl:w-[clamp(5rem,20vw,13rem)] object-cover"
+              className="h-[clamp(8rem,32vw,10rem)] w-[clamp(8rem,32vw,10rem)] xl:h-[clamp(5rem,20vw,13rem)] xl:w-[clamp(5rem,20vw,13rem)] object-cover"
             />
             {/* Radio-style buttons */}
             <div className="absolute bottom-5 flex items-center gap-3">
@@ -170,11 +170,10 @@ const Body: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   aria-label={`Show image ${index + 1}`}
-                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${
-                    currentImage === index
+                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${currentImage === index
                       ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
                       : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -298,7 +297,7 @@ const Body: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-4">
+        <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-20 md:pt-24 px-5">
           <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10 z-20 ">
             <button
               onClick={() => handleClick("aboutMe")}
@@ -422,7 +421,7 @@ const Body: React.FC = () => {
                       onMouseLeave={() => setIsPaused(false)}
                     >
                       {currentIdentityImages &&
-                      currentIdentityImages.length > 0 ? (
+                        currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
                             <Image
@@ -431,11 +430,10 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
-                                index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                              }`}
+                                }`}
                             />
                           ))}
 
@@ -456,11 +454,10 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${
-                                    transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                  }`}
+                                    }`}
                                 />
                               ))}
                             </div>
@@ -524,11 +521,10 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
-                                index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                              }`}
+                                }`}
                             />
                           ))}
 
@@ -549,11 +545,10 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${
-                                    transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                  }`}
+                                    }`}
                                 />
                               ))}
                             </div>
@@ -632,7 +627,7 @@ const Body: React.FC = () => {
                       onMouseLeave={() => setIsPaused(false)}
                     >
                       {currentIdentityImages &&
-                      currentIdentityImages.length > 0 ? (
+                        currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
                             <Image
@@ -641,11 +636,10 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
-                                index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                              }`}
+                                }`}
                             />
                           ))}
 
@@ -666,11 +660,10 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${
-                                    transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                  }`}
+                                    }`}
                                 />
                               ))}
                             </div>

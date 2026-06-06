@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
         </Button>
 
         {/* Desktop Menu */}
-        <div className="hidden items-center gap-8 md:flex lg:gap-12">
+        <div className="hidden items-center gap-8 lg:flex lg:gap-12">
           <Button
             onClick={handleScrollToAbout}
             className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-sm ${
@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Burger Button */}
         <Button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-transparent p-0 text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white md:hidden"
+          className="bg-transparent p-0 text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white lg:hidden"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </Button>
@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="flex flex-col gap-4 bg-gray-900/95 px-4 pb-5 pt-2 backdrop-blur-md md:hidden">
+        <div className="flex flex-col gap-4 bg-gray-900/95 px-6 pb-5 pt-2 backdrop-blur-md lg:hidden">
           <Button
             onClick={handleScrollToAbout}
             className={`justify-start bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent ${
