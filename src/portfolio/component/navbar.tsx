@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
           : "absolute bg-gradient-to-b from-black from-20% to-transparent"
       } top-0 left-0 z-50 w-full transition-all duration-300`}
     >
-      <div className="flex w-full items-center justify-between px-6 py-3 sm:px-6 lg:px-10">
+      <div className="flex w-full items-center justify-between px-6 py-2 sm:px-6 lg:px-10">
         {/* Logo / Name */}
         <Button
           onClick={handleScrollToHome}
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
         <div className="hidden items-center gap-8 md:flex lg:gap-12">
           <Button
             onClick={handleScrollToAbout}
-            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-xl ${
+            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-sm ${
               isClickedAboutMe
                 ? "font-bold text-orange-400 hover:text-orange-600 focus:text-orange-400"
                 : "text-orange-700 hover:text-orange-600 focus:text-orange-400"
@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
 
           <Button
             onClick={handleToDownloadResume}
-            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-xl ${
+            className={`bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent lg:text-sm ${
               isClickedResume
                 ? "font-bold text-orange-400 hover:text-orange-600 focus:text-orange-400"
                 : "text-orange-700 hover:text-orange-600 focus:text-orange-400"

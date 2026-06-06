@@ -151,7 +151,7 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700"
+        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700 pt-14"
       >
         <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5">
           {/* Picture area */}
