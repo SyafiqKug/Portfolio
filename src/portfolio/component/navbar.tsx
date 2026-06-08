@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./button";
 import { Menu, X } from "lucide-react";
-
+import Image from "next/image";
 const Navbar: React.FC = () => {
   const [isClickedAboutMe, setIsClickedAboutMe] = useState(false);
   const [isClickedResume, setIsClickedResume] = useState(false);
@@ -66,6 +66,18 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <div
       className={`${
@@ -78,11 +90,18 @@ const Navbar: React.FC = () => {
         {/* Logo / Name */}
         <Button
           onClick={handleScrollToHome}
-          className="bg-transparent p-0 text-left font-medium tracking-wider text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white"
+          className="bg-transparent p-0 text-left font-medium tracking-wider text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white gap-2"
         >
           <span className="whitespace-nowrap text-lg sm:text-xl xl:text-3xl">
             Syafiq RAez
           </span>
+          <Image
+            src={"/images/icon2.png"}
+            width={100}
+            height={100}
+            alt="Profile"
+            className="h-[clamp(1.8rem,18vw,2rem)] w-[clamp(1.8rem,18vw,2rem)] xl:h-[clamp(2.5rem,18vw,2rem)] xl:w-[clamp(2.5rem,18vw,2rem)] object-cover"
+          />
         </Button>
 
         {/* Desktop Menu */}
@@ -125,26 +144,55 @@ const Navbar: React.FC = () => {
         </Button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="flex flex-col gap-4 bg-gray-900/95 px-6 pb-5 pt-2 backdrop-blur-md lg:hidden">
-          <Button
-            onClick={handleScrollToAbout}
-            className={`justify-start bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent ${
-              isClickedAboutMe ? "font-bold text-orange-400" : "text-orange-500"
-            }`}
-          >
-            About Me
-          </Button>
+        <div className="fixed inset-0 z-40 flex flex-col bg-black/50 backdrop-blur-md lg:hidden">
+          {/* Top area */}
+          <div className="flex items-center justify-between px-6 py-4">
+            <button
+              onClick={handleScrollToHome}
+              className="flex flex-row items-center bg-transparent p-0 text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white lg:hidden gap-2"
+            >
+              <span className="whitespace-nowrap text-lg sm:text-xl xl:text-3xl">
+                Syafiq RAez
+              </span>
+              <Image
+                src={"/images/icon2.png"}
+                width={100}
+                height={100}
+                alt="Profile"
+                className="h-[clamp(1.8rem,18vw,2rem)] w-[clamp(1.8rem,18vw,2rem)] xl:h-[clamp(2.5rem,18vw,2rem)] xl:w-[clamp(2.5rem,18vw,2rem)] object-cover"
+              />
+            </button>
 
-          <Button
-            onClick={handleToDownloadResume}
-            className={`justify-start bg-transparent p-0 text-base font-medium hover:bg-transparent focus:bg-transparent ${
-              isClickedResume ? "font-bold text-orange-400" : "text-orange-500"
-            }`}
-          >
-            Resume
-          </Button>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white"
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+          </div>
+
+          {/* Menu items */}
+          <div className="flex flex-1 flex-col items-center justify-center gap-8">
+            <button
+              onClick={handleScrollToAbout}
+              className={`text-3xl font-semibold ${
+                isClickedAboutMe ? "text-orange-400" : "text-white"
+              }`}
+            >
+              About Me
+            </button>
+
+            <button
+              onClick={handleToDownloadResume}
+              className={`text-3xl font-semibold ${
+                isClickedResume ? "text-orange-400" : "text-white"
+              }`}
+            >
+              Resume
+            </button>
+          </div>
         </div>
       )}
     </div>
