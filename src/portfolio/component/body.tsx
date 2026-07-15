@@ -104,7 +104,7 @@ const Body: React.FC = () => {
   }, [isPaused, transitionImages.length]);
 
   return (
-    <div className="h-full w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
+    <div className="h-full w-full overflow-y-auto overflow-x-hidden scroll-smooth snap-y snap-mandatory">
       <section
         id="home"
         className="relative snap-center min-h-screen w-full overflow-hidden bg-hero bg-cover bg-[position:70%_center] bg-no-repeat text-orange-200 sm:bg-[position:80%_center] md:bg-center"
@@ -151,7 +151,7 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="snap-center min-h-full w-full flex flex-col md:flex-row overflow-hidden divide-x-4 divide-slate-700"
+        className="min-h-screen w-full snap-start flex flex-col overflow-x-hidden md:flex-row md:divide-x-4 md:divide-slate-700"
       >
         <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20 md:pt-24">
           {/* Picture area */}
@@ -170,24 +170,25 @@ const Body: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   aria-label={`Show image ${index + 1}`}
-                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${currentImage === index
+                  className={`h-[clamp(0.4rem,1vw,0.7rem)] w-[clamp(0.4rem,1vw,0.7rem)] rounded-full border transition-all duration-300 ${
+                    currentImage === index
                       ? "bg-sky-300 border-sky-500 scale-110 shadow-sm shadow-gray-900"
                       : "bg-white border-gray-400 hover:bg-sky-200 shadow-sm shadow-gray-500 "
-                    }`}
+                  }`}
                 />
               ))}
             </div>
           </div>
           {/* Detail area */}
-          <div className="w-full flex flex-col sm:flex-row md:flex-col pl-5 gap-1 xl:gap-5">
-            <div className="w-full sm:w-1/2 md:w-full flex flex-col gap-1 xl:gap-5">
+          <div className="w-full flex flex-col sm:flex-row md:flex-col pl-3 md:pl-5 gap-5 xl:gap-5">
+            <div className="w-full sm:w-1/2 md:w-full flex flex-col gap-5 xl:gap-5">
               {/* Contact area */}
               <div className="w-full md:">
                 <div className="text-[clamp(0.5rem,5vw,1.2rem)] font-bold tracking-tight uppercase leading-5 text-slate-700">
                   Contact
                 </div>
 
-                <div className="h-[5px] w-full bg-slate-700 rounded-l-full" />
+                <div className="h-[3px] w-full bg-slate-700 rounded-l-full" />
 
                 <div className="mt-1 xl:mt-3 space-y-1 text-[14px]">
                   <div className="flex items-center gap-2">
@@ -259,7 +260,7 @@ const Body: React.FC = () => {
                   Language
                 </div>
 
-                <div className="h-[5px] w-full bg-slate-700 rounded-l-full" />
+                <div className="h-[3px] w-full bg-slate-700 rounded-l-full" />
 
                 <div className="mt-1 xl:mt-3 space-y-1 text-[14px]">
                   <div className="flex items-center gap-2">
@@ -288,7 +289,7 @@ const Body: React.FC = () => {
                 Skill / Tools
               </div>
 
-              <div className="h-[5px] w-full bg-slate-700 rounded-l-full" />
+              <div className="h-[3px] w-full bg-slate-700 rounded-l-full" />
 
               <div className="space-y-1 text-[14px] pr-5 mt-1 xl:mt-3">
                 <SkillCloud />
@@ -309,8 +310,8 @@ const Body: React.FC = () => {
             </button>
           </div>
 
-          <div className="h-full w-full border-2 border-slate-700 rounded-lg overflow-hidden mt-4">
-            <div className="h-screen-10 sm:min-h-full w-full flex flex-col overflow-y-auto bg-[#ececec]">
+          <div className="mt-4 w-full overflow-hidden rounded-lg border-2 border-slate-700">
+            <div className="min-h-full w-full flex flex-col bg-[#ececec]">
               <div className="w-full flex flex-col p-1 md:p-2 md:pt-6 gap-2 bg-[#ececec]">
                 {/* Title */}
                 <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
@@ -421,7 +422,7 @@ const Body: React.FC = () => {
                       onMouseLeave={() => setIsPaused(false)}
                     >
                       {currentIdentityImages &&
-                        currentIdentityImages.length > 0 ? (
+                      currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
                             <Image
@@ -430,10 +431,11 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
+                                index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                                }`}
+                              }`}
                             />
                           ))}
 
@@ -454,10 +456,11 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${
+                                    transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                    }`}
+                                  }`}
                                 />
                               ))}
                             </div>
@@ -521,10 +524,11 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
+                                index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                                }`}
+                              }`}
                             />
                           ))}
 
@@ -545,10 +549,11 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${
+                                    transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                    }`}
+                                  }`}
                                 />
                               ))}
                             </div>
@@ -627,7 +632,7 @@ const Body: React.FC = () => {
                       onMouseLeave={() => setIsPaused(false)}
                     >
                       {currentIdentityImages &&
-                        currentIdentityImages.length > 0 ? (
+                      currentIdentityImages.length > 0 ? (
                         <>
                           {currentIdentityImages.map((item, index) => (
                             <Image
@@ -636,10 +641,11 @@ const Body: React.FC = () => {
                               alt={item.title}
                               fill
                               sizes="100vw"
-                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${index === transitionIndex
+                              className={`absolute inset-0 object-cover transition-opacity duration-700 ${
+                                index === transitionIndex
                                   ? "opacity-100 animate-zoomSlow"
                                   : "opacity-0"
-                                }`}
+                              }`}
                             />
                           ))}
 
@@ -660,10 +666,11 @@ const Body: React.FC = () => {
                                   type="button"
                                   onClick={() => setTransitionIndex(index)}
                                   aria-label={`Go to transition image ${index + 1}`}
-                                  className={`h-2 rounded-full transition-all ${transitionIndex === index
+                                  className={`h-2 rounded-full transition-all ${
+                                    transitionIndex === index
                                       ? "w-5 bg-white"
                                       : "w-2 bg-white/60 hover:bg-white/80"
-                                    }`}
+                                  }`}
                                 />
                               ))}
                             </div>

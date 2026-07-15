@@ -1,7 +1,7 @@
 const skills = [
   {
     name: "React",
-    size: "text-xl md:text-lg",
+    size: "text-3xl md:text-lg",
     color: "hover:text-sky-400",
     rotate: "-rotate-2",
     weight: "font-extrabold",
@@ -9,7 +9,7 @@ const skills = [
   },
   {
     name: "Next.js",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-red-300",
     rotate: "rotate-1",
     weight: "font-medium",
@@ -17,7 +17,7 @@ const skills = [
   },
   {
     name: "JavaScript",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-yellow-400",
     rotate: "-rotate-1",
     weight: "font-bold",
@@ -25,7 +25,7 @@ const skills = [
   },
   {
     name: "Tailwind",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-cyan-400",
     rotate: "rotate-2",
     weight: "font-extrabold",
@@ -33,7 +33,7 @@ const skills = [
   },
   {
     name: "MySQL",
-    size: "text-xl md:text-lg",
+    size: "text-3xl md:text-lg",
     color: "hover:text-blue-400",
     rotate: "-rotate-1",
     weight: "font-semibold",
@@ -41,7 +41,7 @@ const skills = [
   },
   {
     name: "AWS",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-orange-400",
     rotate: "rotate-1",
     weight: "font-semibold",
@@ -49,7 +49,7 @@ const skills = [
   },
   {
     name: "HTML",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-orange-500",
     rotate: "-rotate-2",
     weight: "font-semibold",
@@ -57,7 +57,7 @@ const skills = [
   },
   {
     name: "CSS",
-    size: "text-base md:text-lg",
+    size: "text-3xl md:text-lg",
     color: "hover:text-blue-500",
     rotate: "rotate-2",
     weight: "font-medium",
@@ -65,7 +65,7 @@ const skills = [
   },
   {
     name: "UI/UX",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-pink-400",
     rotate: "-rotate-1",
     weight: "font-bold",
@@ -73,7 +73,7 @@ const skills = [
   },
   {
     name: "GitHub",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-purple-500 dark:hover:text-gray-100",
     rotate: "-rotate-1",
     weight: "font-semibold",
@@ -81,7 +81,7 @@ const skills = [
   },
   {
     name: "Responsive Design",
-    size: "text-lg md:text-lg",
+    size: "text-2xl md:text-lg",
     color: "hover:text-emerald-700",
     rotate: "rotate-1",
     weight: "font-bold",
@@ -89,7 +89,7 @@ const skills = [
   },
   {
     name: "VSCode",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-rose-500",
     rotate: "-rotate-1",
     weight: "font-bold",
@@ -97,7 +97,7 @@ const skills = [
   },
   {
     name: "Adobe Photoshop",
-    size: "text-lg md:text-xl",
+    size: "text-2xl md:text-xl",
     color: "hover:text-blue-700 dark:hover:text-blue-700",
     rotate: "-rotate-1",
     weight: "font-bold",
@@ -112,7 +112,7 @@ export default function SkillCloud() {
         Skills
       </h2> */}
 
-      <div className="flex flex-wrap items-center gap-1 md:gap-2 xl:gap-x-4 xl:gap-y-3 leading-none text-slate-700">
+      <div className="flex flex-wrap items-center gap-3 md:gap-2 xl:gap-x-4 xl:gap-y-3 leading-none text-slate-700">
         {skills.map((skill, index) => (
           <span
             key={index}
