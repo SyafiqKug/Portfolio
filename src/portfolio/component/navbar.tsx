@@ -45,24 +45,30 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const aboutSection = document.getElementById("about");
+    const scrollContainer = document.querySelector(".portfolio-scroll");
+
+    if (!aboutSection || !scrollContainer) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsClickedAboutMe(entry.isIntersecting);
-        });
+      ([entry]) => {
+        setIsClickedAboutMe(entry.isIntersecting);
       },
-      { threshold: 0.5 },
+      {
+        // Observe scrolling inside your portfolio container
+        root: scrollContainer,
+
+        // About Me becomes active when it enters this area
+        rootMargin: "-20% 0px -65% 0px",
+
+        // Do not require 50% of the entire section
+        threshold: 0,
+      },
     );
 
-    if (aboutSection) {
-      observer.observe(aboutSection);
-    }
+    observer.observe(aboutSection);
 
     return () => {
-      if (aboutSection) {
-        observer.unobserve(aboutSection);
-      }
+      observer.disconnect();
     };
   }, []);
 

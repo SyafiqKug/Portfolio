@@ -151,9 +151,9 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="min-h-screen w-full snap-start flex flex-col overflow-x-hidden md:flex-row md:divide-x-4 md:divide-slate-700"
+        className="min-h-screen w-full snap-start flex flex-col overflow-x-hidden md:flex-row "
       >
-        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20 md:pt-24">
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20">
           {/* Picture area */}
           <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
             <Image
@@ -298,7 +298,7 @@ const Body: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 pt-20 md:pt-24 px-5">
+        <div className=" relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 px-5 pt-5 md:h-dvh md:pt-20 md:overflow-hidden ">
           <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10 z-20 ">
             <button
               onClick={() => handleClick("aboutMe")}
@@ -309,9 +309,8 @@ const Body: React.FC = () => {
               <div>About Me</div>
             </button>
           </div>
-
-          <div className="mt-4 w-full overflow-hidden rounded-lg border-2 border-slate-700">
-            <div className="min-h-full w-full flex flex-col bg-[#ececec]">
+          <div className=" mt-4 w-full min-h-0 md:flex-1 overflow-hidden rounded-lg border-2 border-slate-700 " >
+            <div className=" h-full w-full overflow-y-auto overscroll-contain bg-[#ececec] " >
               <div className="w-full flex flex-col p-1 md:p-2 md:pt-6 gap-2 bg-[#ececec]">
                 {/* Title */}
                 <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">

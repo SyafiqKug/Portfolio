@@ -7,9 +7,7 @@ import Navbar from "@/portfolio/component/navbar";
 const Home: React.FC = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
-  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(
-    null,
-  );
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleScroll = () => {
     // Show scrollbar
