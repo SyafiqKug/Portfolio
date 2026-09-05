@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
           onClick={handleScrollToHome}
           className="bg-transparent p-0 text-left font-medium tracking-wider text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white gap-2"
         >
-          <span className="whitespace-nowrap text-lg sm:text-xl xl:text-3xl">
+          <span className="whitespace-nowrap text-lg sm:text-xl xl:text-xl">
             Syafiq RAez
           </span>
           <Image

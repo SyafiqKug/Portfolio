@@ -26,16 +26,27 @@ const Body: React.FC = () => {
 
   const currentIdentityImages = [
     {
-      src: "/images/emr.png",
+      src: "/projectImage/nawabs1.1.png",
+      title: "NAWABS – Management System",
+    },
+    {
+      src: "/projectImage/nawabs2.png",
+      title: "NAWABS – Management System",
+    },
+    {
+      src: "/projectImage/nawabs3.png",
+      title: "NAWABS – Management System",
+    },
+  ];
+
+  const transitionIdentityImages = [
+    {
+      src: "/projectImage/emr.png",
       title: "EMR.ai – Healthcare System",
     },
     {
-      src: "/images/ezdrive.png",
+      src: "/projectImage/ezdrive.png",
       title: "EzDrive – Driving School System",
-    },
-    {
-      src: "/images/nawabs.png",
-      title: "NAWABS – Management System",
     },
   ];
 
@@ -88,7 +99,7 @@ const Body: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 9000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -151,9 +162,9 @@ const Body: React.FC = () => {
       </section>
       <section
         id="about"
-        className="min-h-screen w-full snap-start flex flex-col overflow-x-hidden md:flex-row "
+        className="min-h-screen w-full snap-start flex flex-col overflow-x-hidden md:h-dvh md:min-h-0 md:flex-row md:overflow-hidden"
       >
-        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20">
+        <div className="w-full md:w-1/4 flex flex-col items-center justify-start bg-sky-100 box-border gap-1 xl:gap-5 py-5 pt-16 sm:pt-20 md:h-full md:min-h-0 md:overflow-hidden md:pb-10">
           {/* Picture area */}
           <div className="relative flex flex-col items-center justify-center rounded-full overflow-hidden shadow-md shadow-gray-900">
             <Image
@@ -298,7 +309,7 @@ const Body: React.FC = () => {
           </div>
         </div>
 
-        <div className=" relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 px-5 pt-5 md:h-dvh md:pt-20 md:overflow-hidden ">
+        <div className="relative w-full md:w-3/4 flex flex-col items-center justify-start p-2 px-5 pt-5 md:h-full md:min-h-0 md:pt-20 md:pb-10 md:overflow-hidden">
           <div className="absolute w-full flex flex-row items-center justify-center md:items-center md:justify-start px-10 z-20 ">
             <button
               onClick={() => handleClick("aboutMe")}
@@ -309,8 +320,8 @@ const Body: React.FC = () => {
               <div>About Me</div>
             </button>
           </div>
-          <div className=" mt-4 w-full min-h-0 md:flex-1 overflow-hidden rounded-lg border-2 border-slate-700 " >
-            <div className=" h-full w-full overflow-y-auto overscroll-contain bg-[#ececec] " >
+          <div className="mt-4 w-full min-h-0 md:flex-1 overflow-hidden rounded-lg border-2 border-slate-700" >
+            <div className="h-full min-h-0 w-full overflow-y-auto overflow-x-hidden overscroll-contain bg-[#ececec]" >
               <div className="w-full flex flex-col p-1 md:p-2 md:pt-6 gap-2 bg-[#ececec]">
                 {/* Title */}
                 <div className="rounded-2xl border border-slate-300 bg-white px-5 py-5 shadow-sm">
@@ -630,10 +641,10 @@ const Body: React.FC = () => {
                       onMouseEnter={() => setIsPaused(true)}
                       onMouseLeave={() => setIsPaused(false)}
                     >
-                      {currentIdentityImages &&
-                      currentIdentityImages.length > 0 ? (
+                      {transitionIdentityImages &&
+                      transitionIdentityImages.length > 0 ? (
                         <>
-                          {currentIdentityImages.map((item, index) => (
+                          {transitionIdentityImages.map((item, index) => (
                             <Image
                               key={`${item.src}-${index}`}
                               src={item.src}
@@ -653,13 +664,13 @@ const Body: React.FC = () => {
                               Project
                             </p>
                             <h4 className="text-sm font-bold text-white md:text-base">
-                              {currentIdentityImages[transitionIndex]?.title}
+                              {transitionIdentityImages[transitionIndex]?.title}
                             </h4>
                           </div>
 
-                          {currentIdentityImages.length > 1 && (
+                          {transitionIdentityImages.length > 1 && (
                             <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm">
-                              {currentIdentityImages.map((_, index) => (
+                              {transitionIdentityImages.map((_, index) => (
                                 <button
                                   key={index}
                                   type="button"

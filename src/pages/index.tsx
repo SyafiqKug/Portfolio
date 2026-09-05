@@ -33,8 +33,10 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative flex h-screen w-full flex-col overflow-hidden">
-      <Navbar />
+    <div className="relative h-dvh w-full flex flex-col overflow-hidden">
+       <div className="shrink-0">
+        <Navbar />
+      </div>
 
       <div
         onScroll={handleScroll}
